@@ -1913,7 +1913,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/12/A016—高效幂函数求值/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/12/A019—三分搜索/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Wang">
@@ -1932,7 +1932,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/12/A016—高效幂函数求值/" itemprop="url">高效幂函数求值</a></h2>
+                <a class="post-title-link" href="/2018/02/12/A019—三分搜索/" itemprop="url">三分搜索</a></h2>
         
 
         <div class="post-meta">
@@ -1996,8 +1996,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/12/A016—高效幂函数求值/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/12/A016—高效幂函数求值/" itemprop="commentCount"></span>
+                <a href="/2018/02/12/A019—三分搜索/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/12/A019—三分搜索/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2005,7 +2005,7 @@
 
           
           
-             <span id="/2018/02/12/A016—高效幂函数求值/" class="leancloud_visitors" data-flag-title="高效幂函数求值">
+             <span id="/2018/02/12/A019—三分搜索/" class="leancloud_visitors" data-flag-title="三分搜索">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2039,11 +2039,11 @@
         
           
             <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>输入两个整数x和n，其中n是非负的，用分治算法实现幂函数x^n的值。</p>
-<p>输入：-2 10<br>输出：1024</p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>使用三分搜索 输入个数为6<br>输入：<br>2 5 6 8 9 10<br>6<br>输出：Element found at index 2</p>
+<p>输入：<br>2 5 6 8 9 10<br>3<br>输出：Element not present</p>
 <hr>
 <hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A016_Power &#123;</span><br><span class="line">	public static int Power(int x,int n) &#123;</span><br><span class="line">		if(n==0) &#123;</span><br><span class="line">			return 1;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(n==1) &#123;</span><br><span class="line">			return x;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(n%2==0) &#123;</span><br><span class="line">			return Power(x,n/2)*Power(x,n/2);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			return Power(x,n/2)*Power(x,n/2)*x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner input = new Scanner(System.in);</span><br><span class="line">		int x=input.nextInt();</span><br><span class="line">		int n=input.nextInt();</span><br><span class="line">		input.close();</span><br><span class="line">		System.out.println(Power(x,n));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A019_TernarySearch &#123;</span><br><span class="line">	public static int TernarySearch(int x,int[] a) &#123;</span><br><span class="line">		 int low=0;  </span><br><span class="line">		 int high=a.length-1;  </span><br><span class="line">		 int notFind=-1;  </span><br><span class="line">		    while(low&lt;=high)  &#123;</span><br><span class="line">		        int one_three=low+(high-low)/3;</span><br><span class="line">		        int two_three=low+2*(high-low)/3;</span><br><span class="line">		        if(a[one_three]==x) &#123;</span><br><span class="line">		        	return one_three;</span><br><span class="line">		        &#125;</span><br><span class="line">		        else if(a[two_three]==x) &#123;</span><br><span class="line">		        	return two_three;</span><br><span class="line">		        &#125;</span><br><span class="line">		        else if(x&lt;a[one_three])&#123;</span><br><span class="line">		            high=one_three-1;  </span><br><span class="line">		        &#125;</span><br><span class="line">		        else if(x&gt;a[one_three]&amp;&amp;x&lt;a[two_three])&#123;</span><br><span class="line">		            low=one_three+1;</span><br><span class="line">		            high=two_three-1; </span><br><span class="line">		        &#125;</span><br><span class="line">		        else &#123;</span><br><span class="line">		        	low=two_three+1;</span><br><span class="line">		        &#125;</span><br><span class="line">		    &#125;   </span><br><span class="line">		 return notFind;     </span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		int[]a= new int[6];</span><br><span class="line">		for(int i=0;i&lt;a.length;i++) &#123;</span><br><span class="line">			a[i]=input.nextInt();</span><br><span class="line">		&#125;</span><br><span class="line">		int x=input.nextInt();</span><br><span class="line">		input.close();</span><br><span class="line">		int y=TernarySearch(x,a);</span><br><span class="line">		if(y==-1) &#123;</span><br><span class="line">			System.out.println(&quot;Element not present&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			System.out.println(&quot;Element found at index &quot;+y);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -2238,7 +2238,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共字</span>
+  <span class="post-count">博客全站共38.0k字</span>
 </div>
         
 
