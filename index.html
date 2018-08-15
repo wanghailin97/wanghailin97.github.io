@@ -373,6 +373,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  628
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
           
 
@@ -396,189 +427,6 @@
 <hr>
 <hr>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A088</span><br><span class="line">&#123;</span><br><span class="line">    // Function to find LCS of String X[0..m-1] and Y[0..n-1]</span><br><span class="line">    public static String longestPalindrome(String X, String Y, int m, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // return empty string if we have reached the end of</span><br><span class="line">        // either sequence</span><br><span class="line">        if (m == 0 || n == 0) &#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if last character of X and Y matches</span><br><span class="line">        if (X.charAt(m - 1) == Y.charAt(n - 1))</span><br><span class="line">        &#123;</span><br><span class="line">            // append current character (X[m-1] or Y[n-1]) to LCS of</span><br><span class="line">            // substring X[0..m-2] and Y[0..n-2]</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n - 1, T) + X.charAt(m - 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // else when the last character of X and Y are different</span><br><span class="line"></span><br><span class="line">        // if top cell of current cell has more value than the left</span><br><span class="line">        // cell, then drop current character of String X and find LCS</span><br><span class="line">        // of substring X[0..m-2], Y[0..n-1]</span><br><span class="line"></span><br><span class="line">        if (T[m - 1][n] &gt; T[m][n - 1]) &#123;</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n, T);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if left cell of current cell has more value than the top</span><br><span class="line">        // cell, then drop current character of String Y and find LCS</span><br><span class="line">        // of substring X[0..m-1], Y[0..n-2]</span><br><span class="line"></span><br><span class="line">        return longestPalindrome(X, Y, m, n - 1, T);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Function to find length of LCS of substring X[0..n-1] and Y[0..n-1]</span><br><span class="line">    public static int LCSLength(String X, String Y, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // first row and first column of the lookup table</span><br><span class="line">        // are already 0 as T[][] is globally declared</span><br><span class="line"></span><br><span class="line">        // fill the lookup table in bottom-up manner</span><br><span class="line">        for (int i = 1; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j = 1; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                // if current character of X and Y matches</span><br><span class="line">                if (X.charAt(i - 1) == Y.charAt(j - 1)) &#123;</span><br><span class="line">                    T[i][j] = T[i - 1][j - 1] + 1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // else if current character of X and Y don&apos;t match</span><br><span class="line">                else &#123;</span><br><span class="line">                    T[i][j] = Integer.max(T[i - 1][j], T[i][j - 1]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return T[n][n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // main function</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String X = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        // String Y is reverse of X</span><br><span class="line">        String Y = new StringBuilder(X).reverse().toString();</span><br><span class="line"></span><br><span class="line">        // T[i][j] stores the length of LCS of substring X[0..i-1], Y[0..j-1]</span><br><span class="line">        int[][] T = new int[X.length() + 1][X.length() + 1];</span><br><span class="line"></span><br><span class="line">        // Find length of Longest Palindromic Subsequence using LCS</span><br><span class="line">        System.out.println(&quot;The length of Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + LCSLength(X, Y, X.length(), T));</span><br><span class="line"></span><br><span class="line">        // Print Longest Palindromic Subsequence using lookup table</span><br><span class="line">        System.out.println(&quot;The Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + longestPalindrome(X, Y, X.length(), X.length(), T));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-	
-    
-    
-    
-	<div>
-	  
-	</div>
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/A087—迷宫中最短路径的长度/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王海林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/04/A087—迷宫中最短路径的长度/" itemprop="url">迷宫中最短路径的长度</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T21:40:42+08:00">
-                2018-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/04/A087—迷宫中最短路径的长度/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/04/A087—迷宫中最短路径的长度/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/06/04/A087—迷宫中最短路径的长度/" class="leancloud_visitors" data-flag-title="迷宫中最短路径的长度">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>给出二进制矩形矩阵形式的迷宫，从给定的源找到迷宫中最短路径的长度给予目的地。 该路径只能从具有值1的单元格中构造，并且在任何给定的时刻，我们只能在四个方向中的一个方向上移动一步。<br>{ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },<br>{ 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },<br>{ 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 },<br>{ 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 },<br>{ 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 },<br>{ 1, 0, 1, 1, 1, 0, 0, 1, 1, 0 },<br>{ 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 },<br>{ 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 },<br>{ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },<br>{ 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 },<br>输入四个数字，分别代表起点的坐标和终点的坐标（空格隔开），输出最短路径的长度。<br>输入：1 1 8 8<br>输出：14</p>
-<hr>
-<hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A087</span><br><span class="line">&#123;</span><br><span class="line">    // M x N matrix</span><br><span class="line">    private static final int M = 10;</span><br><span class="line">    private static final int N = 10;</span><br><span class="line"></span><br><span class="line">    // Check if it is possible to go to (x, y) from current position. The</span><br><span class="line">    // function returns false if the cell has value 0 or already visited</span><br><span class="line">    private static boolean isSafe(int mat[][], int visited[][], int x, int y)</span><br><span class="line">    &#123;</span><br><span class="line">        return !(mat[x][y] == 0 || visited[x][y] != 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // if not a valid position, return false</span><br><span class="line">    private static boolean isValid(int x, int y)</span><br><span class="line">    &#123;</span><br><span class="line">        return (x &lt; M &amp;&amp; y &lt; N &amp;&amp; x &gt;= 0 &amp;&amp; y &gt;= 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Find Shortest Possible Route in a Matrix mat from source cell (0, 0)</span><br><span class="line">    // to destination cell (x, y)</span><br><span class="line"></span><br><span class="line">    // &apos;min_dist&apos; stores length of longest path from source to destination</span><br><span class="line">    // found so far and &apos;dist&apos; maintains length of path from source cell to</span><br><span class="line">    // the current cell (i, j)</span><br><span class="line"></span><br><span class="line">    public static int findShortestPath(int mat[][], int visited[][],</span><br><span class="line">                     int i, int j, int x, int y, int min_dist, int dist)</span><br><span class="line">    &#123;</span><br><span class="line">        // if destination is found, update min_dist</span><br><span class="line">        if (i == x &amp;&amp; j == y)</span><br><span class="line">        &#123;</span><br><span class="line">            return Integer.min(dist, min_dist);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // set (i, j) cell as visited</span><br><span class="line">        visited[i][j] = 1;</span><br><span class="line"></span><br><span class="line">        // go to bottom cell</span><br><span class="line">        if (isValid(i + 1, j) &amp;&amp; isSafe(mat, visited, i + 1, j)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i + 1, j, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to right cell</span><br><span class="line">        if (isValid(i, j + 1) &amp;&amp; isSafe(mat, visited, i, j + 1)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i, j + 1, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to top cell</span><br><span class="line">        if (isValid(i - 1, j) &amp;&amp; isSafe(mat, visited, i - 1, j)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i - 1, j, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to left cell</span><br><span class="line">        if (isValid(i, j - 1) &amp;&amp; isSafe(mat, visited, i, j - 1)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i, j - 1, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Backtrack - Remove (i, j) from visited matrix</span><br><span class="line">        visited[i][j] = 0;</span><br><span class="line"></span><br><span class="line">        return min_dist;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        int mat[][] =</span><br><span class="line">        &#123;</span><br><span class="line">                &#123; 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 &#125;,</span><br><span class="line">                &#123; 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 &#125;,</span><br><span class="line">                &#123; 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 1, 0, 1, 1, 1, 0, 0, 1, 1, 0 &#125;,</span><br><span class="line">                &#123; 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 &#125;,</span><br><span class="line">                &#123; 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 &#125;,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        // construct a matrix to keep track of visited cells</span><br><span class="line">        int[][] visited = new int[M][N];</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int a = input.nextInt();</span><br><span class="line">        int b = input.nextInt();</span><br><span class="line">        int c = input.nextInt();</span><br><span class="line">        int d = input.nextInt();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        int min_dist = findShortestPath(mat, visited, a-1, b-1, c-1, d-1,</span><br><span class="line">                                        Integer.MAX_VALUE, 0);</span><br><span class="line"></span><br><span class="line">        if(min_dist != Integer.MAX_VALUE) &#123;</span><br><span class="line">            System.out.println(&quot;The shortest path from source to destination &quot;</span><br><span class="line">                              + &quot;has length &quot; + min_dist);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            System.out.println(&quot;Destination can&apos;t be reached from source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -739,6 +587,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  441
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -790,6 +669,220 @@
 <hr>
 <hr>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class A086</span><br><span class="line">&#123;</span><br><span class="line">    // N x N chessboard</span><br><span class="line">    public static final int N = 4;</span><br><span class="line"></span><br><span class="line">    // Function to check if two queens threaten each other or not</span><br><span class="line">    private static boolean isSafe(char mat[][], int r, int c)</span><br><span class="line">    &#123;</span><br><span class="line">        // return false if two queens share the same column</span><br><span class="line">        for (int i = 0; i &lt; r; i++)</span><br><span class="line">            if (mat[i][c] == &apos;Q&apos;)</span><br><span class="line">                return false;</span><br><span class="line"></span><br><span class="line">        // return false if two queens share the same \ diagonal</span><br><span class="line">        for (int i = r, j = c; i &gt;= 0 &amp;&amp; j &gt;= 0; i--, j--)</span><br><span class="line">            if (mat[i][j] == &apos;Q&apos;)</span><br><span class="line">                return false;</span><br><span class="line"></span><br><span class="line">        // return false if two queens share the same / diagonal</span><br><span class="line">        for (int i = r, j = c; i &gt;= 0 &amp;&amp; j &lt; N; i--, j++)</span><br><span class="line">            if (mat[i][j] == &apos;Q&apos;)</span><br><span class="line">                return false;</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void nQueen(char mat[][], int r, int c)</span><br><span class="line">    &#123;</span><br><span class="line">        // if N queens are placed successfully, print the solution</span><br><span class="line">        if (c == 0 &amp;&amp; r == N)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int i = 0; i &lt; N; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                for (int j = 0; j &lt; N; j++)</span><br><span class="line">                    System.out.print(mat[i][j] + &quot; &quot;);</span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line"></span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // place Queen at every square in current row r</span><br><span class="line">        // and recurse for each valid movement</span><br><span class="line">        for (int i = 0; i &lt; N; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            // if no two queens threaten each other</span><br><span class="line">            if (isSafe(mat, r, i))</span><br><span class="line">            &#123;</span><br><span class="line">                // place queen on current square</span><br><span class="line">                mat[r][i] = &apos;Q&apos;;</span><br><span class="line"></span><br><span class="line">                // recurse for next row</span><br><span class="line">                nQueen(mat, r + 1, 0);</span><br><span class="line"></span><br><span class="line">                // backtrack and remove queen from current square</span><br><span class="line">                mat[r][i] = &apos;-&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        // mat[][] keeps track of position of Queens in</span><br><span class="line">        // the current configuration</span><br><span class="line">        char[][] mat = new char[N][N];</span><br><span class="line"></span><br><span class="line">        // initialize mat[][] by &apos;-&apos;</span><br><span class="line">        for (int i = 0; i &lt; N; i++) &#123;</span><br><span class="line">            Arrays.fill(mat[i], &apos;-&apos;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        nQueen(mat, 0, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/A087—迷宫中最短路径的长度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/04/A087—迷宫中最短路径的长度/" itemprop="url">迷宫中最短路径的长度</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T21:40:42+08:00">
+                2018-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/04/A087—迷宫中最短路径的长度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/04/A087—迷宫中最短路径的长度/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/04/A087—迷宫中最短路径的长度/" class="leancloud_visitors" data-flag-title="迷宫中最短路径的长度">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  833
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>给出二进制矩形矩阵形式的迷宫，从给定的源找到迷宫中最短路径的长度给予目的地。 该路径只能从具有值1的单元格中构造，并且在任何给定的时刻，我们只能在四个方向中的一个方向上移动一步。<br>{ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },<br>{ 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },<br>{ 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 },<br>{ 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 },<br>{ 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 },<br>{ 1, 0, 1, 1, 1, 0, 0, 1, 1, 0 },<br>{ 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 },<br>{ 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 },<br>{ 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 },<br>{ 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 },<br>输入四个数字，分别代表起点的坐标和终点的坐标（空格隔开），输出最短路径的长度。<br>输入：1 1 8 8<br>输出：14</p>
+<hr>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A087</span><br><span class="line">&#123;</span><br><span class="line">    // M x N matrix</span><br><span class="line">    private static final int M = 10;</span><br><span class="line">    private static final int N = 10;</span><br><span class="line"></span><br><span class="line">    // Check if it is possible to go to (x, y) from current position. The</span><br><span class="line">    // function returns false if the cell has value 0 or already visited</span><br><span class="line">    private static boolean isSafe(int mat[][], int visited[][], int x, int y)</span><br><span class="line">    &#123;</span><br><span class="line">        return !(mat[x][y] == 0 || visited[x][y] != 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // if not a valid position, return false</span><br><span class="line">    private static boolean isValid(int x, int y)</span><br><span class="line">    &#123;</span><br><span class="line">        return (x &lt; M &amp;&amp; y &lt; N &amp;&amp; x &gt;= 0 &amp;&amp; y &gt;= 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Find Shortest Possible Route in a Matrix mat from source cell (0, 0)</span><br><span class="line">    // to destination cell (x, y)</span><br><span class="line"></span><br><span class="line">    // &apos;min_dist&apos; stores length of longest path from source to destination</span><br><span class="line">    // found so far and &apos;dist&apos; maintains length of path from source cell to</span><br><span class="line">    // the current cell (i, j)</span><br><span class="line"></span><br><span class="line">    public static int findShortestPath(int mat[][], int visited[][],</span><br><span class="line">                     int i, int j, int x, int y, int min_dist, int dist)</span><br><span class="line">    &#123;</span><br><span class="line">        // if destination is found, update min_dist</span><br><span class="line">        if (i == x &amp;&amp; j == y)</span><br><span class="line">        &#123;</span><br><span class="line">            return Integer.min(dist, min_dist);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // set (i, j) cell as visited</span><br><span class="line">        visited[i][j] = 1;</span><br><span class="line"></span><br><span class="line">        // go to bottom cell</span><br><span class="line">        if (isValid(i + 1, j) &amp;&amp; isSafe(mat, visited, i + 1, j)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i + 1, j, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to right cell</span><br><span class="line">        if (isValid(i, j + 1) &amp;&amp; isSafe(mat, visited, i, j + 1)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i, j + 1, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to top cell</span><br><span class="line">        if (isValid(i - 1, j) &amp;&amp; isSafe(mat, visited, i - 1, j)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i - 1, j, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // go to left cell</span><br><span class="line">        if (isValid(i, j - 1) &amp;&amp; isSafe(mat, visited, i, j - 1)) &#123;</span><br><span class="line">            min_dist = findShortestPath(mat, visited, i, j - 1, x, y,</span><br><span class="line">                                        min_dist, dist + 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Backtrack - Remove (i, j) from visited matrix</span><br><span class="line">        visited[i][j] = 0;</span><br><span class="line"></span><br><span class="line">        return min_dist;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        int mat[][] =</span><br><span class="line">        &#123;</span><br><span class="line">                &#123; 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 &#125;,</span><br><span class="line">                &#123; 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 1, 0, 1, 1, 1, 0, 0, 1 &#125;,</span><br><span class="line">                &#123; 1, 0, 1, 1, 1, 0, 1, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 0, 1, 0, 0, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 1, 0, 1, 1, 1, 0, 0, 1, 1, 0 &#125;,</span><br><span class="line">                &#123; 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 &#125;,</span><br><span class="line">                &#123; 0, 1, 1, 1, 1, 1, 1, 1, 0, 0 &#125;,</span><br><span class="line">                &#123; 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 &#125;,</span><br><span class="line">                &#123; 0, 0, 1, 0, 0, 1, 1, 0, 0, 1 &#125;,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        // construct a matrix to keep track of visited cells</span><br><span class="line">        int[][] visited = new int[M][N];</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int a = input.nextInt();</span><br><span class="line">        int b = input.nextInt();</span><br><span class="line">        int c = input.nextInt();</span><br><span class="line">        int d = input.nextInt();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        int min_dist = findShortestPath(mat, visited, a-1, b-1, c-1, d-1,</span><br><span class="line">                                        Integer.MAX_VALUE, 0);</span><br><span class="line"></span><br><span class="line">        if(min_dist != Integer.MAX_VALUE) &#123;</span><br><span class="line">            System.out.println(&quot;The shortest path from source to destination &quot;</span><br><span class="line">                              + &quot;has length &quot; + min_dist);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            System.out.println(&quot;Destination can&apos;t be reached from source&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -949,6 +1042,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  347
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
           
 
           
@@ -1133,6 +1257,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  324
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1315,6 +1470,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  409
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
           
 
           
@@ -1499,6 +1685,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  315
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1575,7 +1792,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/A082—0-1背包问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/A080—活动选择问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Wang">
@@ -1594,7 +1811,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/27/A082—0-1背包问题/" itemprop="url">0-1背包问题</a></h2>
+                <a class="post-title-link" href="/2018/05/27/A080—活动选择问题/" itemprop="url">活动选择问题</a></h2>
         
 
         <div class="post-meta">
@@ -1658,8 +1875,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/27/A082—0-1背包问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/27/A082—0-1背包问题/" itemprop="commentCount"></span>
+                <a href="/2018/05/27/A080—活动选择问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/27/A080—活动选择问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1667,7 +1884,7 @@
 
           
           
-             <span id="/2018/05/27/A082—0-1背包问题/" class="leancloud_visitors" data-flag-title="0-1背包问题">
+             <span id="/2018/05/27/A080—活动选择问题/" class="leancloud_visitors" data-flag-title="活动选择问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1681,6 +1898,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  339
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
           
 
           
@@ -1701,10 +1949,10 @@
         
           
             <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>在0-1背包问题中，我们给定一组物件，每个物件都有与之匹配的价值和重量，我们需要找到一个包含不同物件的组合，使得总重量不大于背包的重量限制，但是其价值总和尽可能最大。请注意，每个物件都是不可分割的，该物件可以放入背包，或不放入背包（0-1属性）。<br>value = [20，5，10，40，15，25]<br>weight = [1,2,3,8，4,7]<br>如果 W = 10<br>背包值为60<br>value= 20 + 40 = 60<br>weight = 1 + 8 = 9<br>输入：10<br>输出：60<br>输入：8<br>输出：45</p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>在活动选择问题中，我们给出不同的活动和每个活动的开始及结束时间，假设一个人在同一时间段下只能参加一场活动，找出其能够参加的活动的最大数量。(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11), (8, 12), (2, 13), (12, 14)。<br>输出格式:(1,4) (5,7) (8,11) (12,14)</p>
 <hr>
 <hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">//A Dynamic Programming based solution for 0-1 Knapsack problem</span><br><span class="line">public class A082</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> // A utility function that returns maximum of two integers</span><br><span class="line"> static int max(int a, int b) &#123; return (a &gt; b)? a : b; &#125;</span><br><span class="line">   </span><br><span class="line">// Returns the maximum value that can be put in a knapsack of capacity W</span><br><span class="line"> static int knapSack(int W, int wt[], int val[], int n)</span><br><span class="line"> &#123;</span><br><span class="line">      int i, w;</span><br><span class="line">  int K[][] = new int[n+1][W+1];</span><br><span class="line">   </span><br><span class="line">  // Build table K[][] in bottom up manner</span><br><span class="line">  for (i = 0; i &lt;= n; i++)</span><br><span class="line">  &#123;</span><br><span class="line">      for (w = 0; w &lt;= W; w++)</span><br><span class="line">      &#123;</span><br><span class="line">          if (i==0 || w==0)</span><br><span class="line">               K[i][w] = 0;</span><br><span class="line">          else if (wt[i-1] &lt;= w)</span><br><span class="line">                K[i][w] = max(val[i-1] + K[i-1][w-wt[i-1]],  K[i-1][w]);</span><br><span class="line">          else</span><br><span class="line">                K[i][w] = K[i-1][w];</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   return K[n][W];</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> // Driver program to test above function</span><br><span class="line"> public static void main(String args[])</span><br><span class="line"> &#123;</span><br><span class="line">	 int val[] = new int[]&#123;20, 5, 10, 40, 15, 25&#125;;</span><br><span class="line">     int wt[] = new int[]&#123;1, 2, 3, 8, 4, 7&#125;;</span><br><span class="line">     int n = val.length;</span><br><span class="line">     Scanner input = new Scanner(System.in);</span><br><span class="line">     int W = input.nextInt();</span><br><span class="line">     input.close();</span><br><span class="line">     System.out.println(knapSack(W, wt, val, n));</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">//Simple pair class to store the start time and finish time</span><br><span class="line">//of the activities</span><br><span class="line">class Pair</span><br><span class="line">&#123;</span><br><span class="line"> private int start, finish;</span><br><span class="line"></span><br><span class="line"> public Pair(int start, int finish) &#123;</span><br><span class="line">     this.start = start;</span><br><span class="line">     this.finish = finish;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public int getFinish() &#123;</span><br><span class="line">     return finish;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public int getStart() &#123;</span><br><span class="line">     return start;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public String toString() &#123;</span><br><span class="line">     return &quot;(&quot; + getStart() + &quot; &quot; + getFinish() + &quot;)&quot;;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">public class A080</span><br><span class="line">&#123;</span><br><span class="line"> public static Set&lt;Integer&gt; selectActivity(List&lt;Pair&gt; activities)</span><br><span class="line"> &#123;</span><br><span class="line">     int k = 0;</span><br><span class="line">     Set&lt;Integer&gt; out = new HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">     out.add(0);</span><br><span class="line">     for (int i = 1; i &lt; activities.size(); i++)</span><br><span class="line">     &#123;</span><br><span class="line">         if (activities.get(i).getStart() &gt;= activities.get(k).getFinish())</span><br><span class="line">         &#123;</span><br><span class="line">             out.add(i);</span><br><span class="line">             k = i;    </span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     return out;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args)</span><br><span class="line"> &#123;</span><br><span class="line">     List&lt;Pair&gt; activities = Arrays.asList(new Pair(1, 4), new Pair(3, 5),</span><br><span class="line">             new Pair(0, 6), new Pair(5, 7), new Pair(3, 8),</span><br><span class="line">             new Pair(5, 9), new Pair(6, 10), new Pair(8, 11),</span><br><span class="line">             new Pair(8, 12), new Pair(2, 13), new Pair(12, 14));</span><br><span class="line"></span><br><span class="line">     Collections.sort(activities, (a, b) -&gt; a.getFinish() - b.getFinish());</span><br><span class="line"></span><br><span class="line">     Set&lt;Integer&gt; res = selectActivity(activities);</span><br><span class="line"></span><br><span class="line">     for (Integer i: res) &#123;</span><br><span class="line">         System.out.print(activities.get(i));</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -1864,6 +2112,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  182
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -2047,6 +2326,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  192
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -2238,6 +2548,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Mr.Wang</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">38.0k</span>
   
 </div>
 
