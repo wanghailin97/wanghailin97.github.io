@@ -266,189 +266,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/A088—最长的回文序列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王海林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/04/A088—最长的回文序列/" itemprop="url">最长的回文序列</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T21:40:42+08:00">
-                2018-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/04/A088—最长的回文序列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/04/A088—最长的回文序列/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/06/04/A088—最长的回文序列/" class="leancloud_visitors" data-flag-title="最长的回文序列">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>最长的回归序列（LPS）问题是找到字符串的最长子序列的问题<br>那也是回文。<br>问题不同于寻找共同的子串的问题。 与子串不同，子序列不需要占用<br>原始序列中的连续位置。<br>例如，考虑ABBDCACB序列<br>最长回归序列长度为5<br>最长的回文序列是BCACB<br>输入：ABBDCACB<br>输出：<br>5<br>BCACB</p>
-<hr>
-<hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A088</span><br><span class="line">&#123;</span><br><span class="line">    // Function to find LCS of String X[0..m-1] and Y[0..n-1]</span><br><span class="line">    public static String longestPalindrome(String X, String Y, int m, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // return empty string if we have reached the end of</span><br><span class="line">        // either sequence</span><br><span class="line">        if (m == 0 || n == 0) &#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if last character of X and Y matches</span><br><span class="line">        if (X.charAt(m - 1) == Y.charAt(n - 1))</span><br><span class="line">        &#123;</span><br><span class="line">            // append current character (X[m-1] or Y[n-1]) to LCS of</span><br><span class="line">            // substring X[0..m-2] and Y[0..n-2]</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n - 1, T) + X.charAt(m - 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // else when the last character of X and Y are different</span><br><span class="line"></span><br><span class="line">        // if top cell of current cell has more value than the left</span><br><span class="line">        // cell, then drop current character of String X and find LCS</span><br><span class="line">        // of substring X[0..m-2], Y[0..n-1]</span><br><span class="line"></span><br><span class="line">        if (T[m - 1][n] &gt; T[m][n - 1]) &#123;</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n, T);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if left cell of current cell has more value than the top</span><br><span class="line">        // cell, then drop current character of String Y and find LCS</span><br><span class="line">        // of substring X[0..m-1], Y[0..n-2]</span><br><span class="line"></span><br><span class="line">        return longestPalindrome(X, Y, m, n - 1, T);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Function to find length of LCS of substring X[0..n-1] and Y[0..n-1]</span><br><span class="line">    public static int LCSLength(String X, String Y, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // first row and first column of the lookup table</span><br><span class="line">        // are already 0 as T[][] is globally declared</span><br><span class="line"></span><br><span class="line">        // fill the lookup table in bottom-up manner</span><br><span class="line">        for (int i = 1; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j = 1; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                // if current character of X and Y matches</span><br><span class="line">                if (X.charAt(i - 1) == Y.charAt(j - 1)) &#123;</span><br><span class="line">                    T[i][j] = T[i - 1][j - 1] + 1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // else if current character of X and Y don&apos;t match</span><br><span class="line">                else &#123;</span><br><span class="line">                    T[i][j] = Integer.max(T[i - 1][j], T[i][j - 1]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return T[n][n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // main function</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String X = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        // String Y is reverse of X</span><br><span class="line">        String Y = new StringBuilder(X).reverse().toString();</span><br><span class="line"></span><br><span class="line">        // T[i][j] stores the length of LCS of substring X[0..i-1], Y[0..j-1]</span><br><span class="line">        int[][] T = new int[X.length() + 1][X.length() + 1];</span><br><span class="line"></span><br><span class="line">        // Find length of Longest Palindromic Subsequence using LCS</span><br><span class="line">        System.out.println(&quot;The length of Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + LCSLength(X, Y, X.length(), T));</span><br><span class="line"></span><br><span class="line">        // Print Longest Palindromic Subsequence using lookup table</span><br><span class="line">        System.out.println(&quot;The Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + longestPalindrome(X, Y, X.length(), X.length(), T));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-	
-    
-    
-    
-	<div>
-	  
-	</div>
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/A086—N皇后问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -843,7 +660,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/A085—通配符模式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/04/A088—最长的回文序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.Wang">
@@ -862,7 +679,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/28/A085—通配符模式匹配/" itemprop="url">通配符模式匹配</a></h2>
+                <a class="post-title-link" href="/2018/06/04/A088—最长的回文序列/" itemprop="url">最长的回文序列</a></h2>
         
 
         <div class="post-meta">
@@ -874,8 +691,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T21:40:42+08:00">
-                2018-05-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-04T21:40:42+08:00">
+                2018-06-04
               </time>
             
 
@@ -926,8 +743,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/28/A085—通配符模式匹配/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/28/A085—通配符模式匹配/" itemprop="commentCount"></span>
+                <a href="/2018/06/04/A088—最长的回文序列/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/04/A088—最长的回文序列/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -935,7 +752,7 @@
 
           
           
-             <span id="/2018/05/28/A085—通配符模式匹配/" class="leancloud_visitors" data-flag-title="通配符模式匹配">
+             <span id="/2018/06/04/A088—最长的回文序列/" class="leancloud_visitors" data-flag-title="最长的回文序列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -969,193 +786,10 @@
         
           
             <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>给定一个字符串和包含’<em>‘和’？’通配符的模式，其中’？’可以匹配输入字符串中的任何单个字符，’</em>‘可以匹配任意数量的字符，包括零字符，设计一个有效的算法 以查找模式是否与完整的输入字符串匹配。<br>例如，<br>输入：xyxzzxy  x <strong><em> y<br>输出：yes<br>输入：xyxzzxy  x </em></strong> x<br>输出：no<br>输入：xyxzzxy  x <em>** x？<br>输出：yes<br>输入：xyxzzxy  </em><br>输出：yes</p>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>最长的回归序列（LPS）问题是找到字符串的最长子序列的问题<br>那也是回文。<br>问题不同于寻找共同的子串的问题。 与子串不同，子序列不需要占用<br>原始序列中的连续位置。<br>例如，考虑ABBDCACB序列<br>最长回归序列长度为5<br>最长的回文序列是BCACB<br>输入：ABBDCACB<br>输出：<br>5<br>BCACB</p>
 <hr>
 <hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A085 &#123;</span><br><span class="line"> // Function that matches input string with given wildcard pattern</span><br><span class="line"> public boolean isMatching(char[] str, char[] pattern) &#123;</span><br><span class="line">  // get length of string and wildcard pattern</span><br><span class="line">  int n = str.length;</span><br><span class="line">  int m = pattern.length;</span><br><span class="line">  // create a DP lookup table</span><br><span class="line">  boolean[][] T = new boolean[n + 1][m + 1];</span><br><span class="line">  // if both pattern and string is empty: match</span><br><span class="line">  T[0][0] = true;</span><br><span class="line">  // build matrix in bottom-up manner</span><br><span class="line">  for (int i = 0; i &lt;= n; i++) &#123;</span><br><span class="line">   for (int j = 1; j &lt;= m; j++) &#123;</span><br><span class="line">    if (i == 0 &amp;&amp; pattern[j - 1] == &apos;*&apos;)</span><br><span class="line">     T[i][j] = T[i][j - 1];</span><br><span class="line">    else if (pattern[j - 1] == &apos;*&apos;&amp;&amp;i &gt; 0)</span><br><span class="line">     T[i][j] = T[i - 1][j] || T[i][j - 1];</span><br><span class="line">    else if ((i &gt;= 1&amp;&amp;pattern[j - 1] == &apos;?&apos; )|| (i &gt;= 1&amp;&amp;str[i - 1] == pattern[j - 1]))</span><br><span class="line">     T[i][j] = T[i - 1][j - 1];</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  // last cell stores the answer</span><br><span class="line">  return T[n][m];</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  Scanner sc = new Scanner(System.in);</span><br><span class="line">  A085 da = new A085();</span><br><span class="line"></span><br><span class="line">  String str1 = sc.next();</span><br><span class="line">  String str2 = sc.next();</span><br><span class="line">  char[] str = str1.toCharArray();</span><br><span class="line">  char[] pattern = str2.toCharArray();</span><br><span class="line">  if (da.isMatching(str, pattern))</span><br><span class="line">   System.out.println(&quot;yes&quot;);</span><br><span class="line">  else</span><br><span class="line">   System.out.println(&quot;no&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-	
-    
-    
-    
-	<div>
-	  
-	</div>
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/A084—Word Break问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王海林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/28/A084—Word Break问题/" itemprop="url">Word Break问题</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T21:40:42+08:00">
-                2018-05-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/28/A084—Word Break问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/28/A084—Word Break问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/05/28/A084—Word Break问题/" class="leancloud_visitors" data-flag-title="Word Break问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Word Break问题：给定字符串和词典，确定字符串是否可以分割成一个或多个由字典中单词组成的序列，单词间以空格隔开。<br>dict[] = { “this”, “th”, “is”, “famous”, “Word”, “break”, “b”,<br>“r”, “e”, “a”, “k”, “br”, “bre”, “brea”, “ak”, “problem” };<br>输入 Wordbreakproblem<br>输出<br>Word b r e a k problem<br>Word b r e ak problem<br>Word br e a k problem<br>Word br e ak problem<br>Word bre a k problem<br>Word bre ak problem<br>Word brea k problem<br>Word break problem</p>
-<hr>
-<hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A084</span><br><span class="line">&#123;</span><br><span class="line">    // Function to segment given String into a space-separated</span><br><span class="line">    // sequence of one or more dictionary words</span><br><span class="line">    public static void wordBreak(List&lt;String&gt; dict, String str, String out)</span><br><span class="line">    &#123;</span><br><span class="line">        // if we have reached the end of the String,</span><br><span class="line">        // print the output String</span><br><span class="line">        if (str.length() == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(out);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt;= str.length(); i++) &#123;</span><br><span class="line">            // consider all prefixes of current String</span><br><span class="line">            String prefix = str.substring(0, i);</span><br><span class="line"></span><br><span class="line">            // if the prefix is present in the dictionary, add prefix to the</span><br><span class="line">            // output String and recurse for remaining String</span><br><span class="line">            if (dict.contains(prefix)) &#123;</span><br><span class="line">                wordBreak(dict, str.substring(i), out + &quot; &quot; + prefix);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // main function</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        // List of Strings to represent dictionary</span><br><span class="line">        List&lt;String&gt; dict = Arrays.asList(&quot;this&quot;, &quot;th&quot;, &quot;is&quot;, &quot;famous&quot;, &quot;Word&quot;, </span><br><span class="line">                                        &quot;break&quot;, &quot;b&quot;, &quot;r&quot;, &quot;e&quot;, &quot;a&quot;, &quot;k&quot;, &quot;br&quot;, </span><br><span class="line">                                        &quot;bre&quot;, &quot;brea&quot;, &quot;ak&quot;, &quot;problem&quot;);</span><br><span class="line"></span><br><span class="line">        // input String</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String str = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        wordBreak(dict, str, &quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A088</span><br><span class="line">&#123;</span><br><span class="line">    // Function to find LCS of String X[0..m-1] and Y[0..n-1]</span><br><span class="line">    public static String longestPalindrome(String X, String Y, int m, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // return empty string if we have reached the end of</span><br><span class="line">        // either sequence</span><br><span class="line">        if (m == 0 || n == 0) &#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if last character of X and Y matches</span><br><span class="line">        if (X.charAt(m - 1) == Y.charAt(n - 1))</span><br><span class="line">        &#123;</span><br><span class="line">            // append current character (X[m-1] or Y[n-1]) to LCS of</span><br><span class="line">            // substring X[0..m-2] and Y[0..n-2]</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n - 1, T) + X.charAt(m - 1);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // else when the last character of X and Y are different</span><br><span class="line"></span><br><span class="line">        // if top cell of current cell has more value than the left</span><br><span class="line">        // cell, then drop current character of String X and find LCS</span><br><span class="line">        // of substring X[0..m-2], Y[0..n-1]</span><br><span class="line"></span><br><span class="line">        if (T[m - 1][n] &gt; T[m][n - 1]) &#123;</span><br><span class="line">            return longestPalindrome(X, Y, m - 1, n, T);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // if left cell of current cell has more value than the top</span><br><span class="line">        // cell, then drop current character of String Y and find LCS</span><br><span class="line">        // of substring X[0..m-1], Y[0..n-2]</span><br><span class="line"></span><br><span class="line">        return longestPalindrome(X, Y, m, n - 1, T);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Function to find length of LCS of substring X[0..n-1] and Y[0..n-1]</span><br><span class="line">    public static int LCSLength(String X, String Y, int n, int[][] T)</span><br><span class="line">    &#123;</span><br><span class="line">        // first row and first column of the lookup table</span><br><span class="line">        // are already 0 as T[][] is globally declared</span><br><span class="line"></span><br><span class="line">        // fill the lookup table in bottom-up manner</span><br><span class="line">        for (int i = 1; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (int j = 1; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                // if current character of X and Y matches</span><br><span class="line">                if (X.charAt(i - 1) == Y.charAt(j - 1)) &#123;</span><br><span class="line">                    T[i][j] = T[i - 1][j - 1] + 1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // else if current character of X and Y don&apos;t match</span><br><span class="line">                else &#123;</span><br><span class="line">                    T[i][j] = Integer.max(T[i - 1][j], T[i][j - 1]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return T[n][n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // main function</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String X = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        // String Y is reverse of X</span><br><span class="line">        String Y = new StringBuilder(X).reverse().toString();</span><br><span class="line"></span><br><span class="line">        // T[i][j] stores the length of LCS of substring X[0..i-1], Y[0..j-1]</span><br><span class="line">        int[][] T = new int[X.length() + 1][X.length() + 1];</span><br><span class="line"></span><br><span class="line">        // Find length of Longest Palindromic Subsequence using LCS</span><br><span class="line">        System.out.println(&quot;The length of Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + LCSLength(X, Y, X.length(), T));</span><br><span class="line"></span><br><span class="line">        // Print Longest Palindromic Subsequence using lookup table</span><br><span class="line">        System.out.println(&quot;The Longest Palindromic Subsequence is &quot;</span><br><span class="line">                        + longestPalindrome(X, Y, X.length(), X.length(), T));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -1392,6 +1026,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/A084—Word Break问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/28/A084—Word Break问题/" itemprop="url">Word Break问题</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T21:40:42+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/28/A084—Word Break问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/28/A084—Word Break问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/28/A084—Word Break问题/" class="leancloud_visitors" data-flag-title="Word Break问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Word Break问题：给定字符串和词典，确定字符串是否可以分割成一个或多个由字典中单词组成的序列，单词间以空格隔开。<br>dict[] = { “this”, “th”, “is”, “famous”, “Word”, “break”, “b”,<br>“r”, “e”, “a”, “k”, “br”, “bre”, “brea”, “ak”, “problem” };<br>输入 Wordbreakproblem<br>输出<br>Word b r e a k problem<br>Word b r e ak problem<br>Word br e a k problem<br>Word br e ak problem<br>Word bre a k problem<br>Word bre ak problem<br>Word brea k problem<br>Word break problem</p>
+<hr>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A084</span><br><span class="line">&#123;</span><br><span class="line">    // Function to segment given String into a space-separated</span><br><span class="line">    // sequence of one or more dictionary words</span><br><span class="line">    public static void wordBreak(List&lt;String&gt; dict, String str, String out)</span><br><span class="line">    &#123;</span><br><span class="line">        // if we have reached the end of the String,</span><br><span class="line">        // print the output String</span><br><span class="line">        if (str.length() == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(out);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt;= str.length(); i++) &#123;</span><br><span class="line">            // consider all prefixes of current String</span><br><span class="line">            String prefix = str.substring(0, i);</span><br><span class="line"></span><br><span class="line">            // if the prefix is present in the dictionary, add prefix to the</span><br><span class="line">            // output String and recurse for remaining String</span><br><span class="line">            if (dict.contains(prefix)) &#123;</span><br><span class="line">                wordBreak(dict, str.substring(i), out + &quot; &quot; + prefix);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // main function</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        // List of Strings to represent dictionary</span><br><span class="line">        List&lt;String&gt; dict = Arrays.asList(&quot;this&quot;, &quot;th&quot;, &quot;is&quot;, &quot;famous&quot;, &quot;Word&quot;, </span><br><span class="line">                                        &quot;break&quot;, &quot;b&quot;, &quot;r&quot;, &quot;e&quot;, &quot;a&quot;, &quot;k&quot;, &quot;br&quot;, </span><br><span class="line">                                        &quot;bre&quot;, &quot;brea&quot;, &quot;ak&quot;, &quot;problem&quot;);</span><br><span class="line"></span><br><span class="line">        // input String</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String str = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        </span><br><span class="line">        wordBreak(dict, str, &quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/A081—计算矩阵中具有给定成本的到达目单元的路径数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1522,6 +1339,189 @@
 <hr>
 <hr>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A081</span><br><span class="line">&#123;</span><br><span class="line">    public static int countPaths(int mat[][], int m, int n, int cost)</span><br><span class="line">    &#123;</span><br><span class="line">        if (cost &lt; 0) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">		&#125;</span><br><span class="line">        if (m == 0 &amp;&amp; n == 0) &#123;</span><br><span class="line">            return (mat[0][0] - cost == 0) ? 1: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        if (m == 0) &#123;</span><br><span class="line">            return countPaths(mat, 0, n - 1, cost - mat[m][n]);</span><br><span class="line">		&#125;</span><br><span class="line">        if (n == 0) &#123;</span><br><span class="line">            return countPaths(mat, m - 1, 0, cost - mat[m][n]);</span><br><span class="line">		&#125;</span><br><span class="line">        return countPaths(mat, m - 1, n, cost - mat[m][n]) +</span><br><span class="line">                countPaths(mat, m, n - 1, cost - mat[m][n]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        int[][] mat =</span><br><span class="line">        &#123;</span><br><span class="line">            &#123; 4, 7, 1, 6 &#125;,</span><br><span class="line">            &#123; 5, 7, 3, 9 &#125;,</span><br><span class="line">            &#123; 3, 2, 1, 2 &#125;,</span><br><span class="line">            &#123; 7, 1, 6, 3 &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int cost = input.nextInt();</span><br><span class="line">        input.close();</span><br><span class="line">        System.out.println(countPaths(mat, mat.length-1, mat[0].length-1, cost));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/28/A085—通配符模式匹配/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/28/A085—通配符模式匹配/" itemprop="url">通配符模式匹配</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-28T21:40:42+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/28/A085—通配符模式匹配/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/28/A085—通配符模式匹配/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/28/A085—通配符模式匹配/" class="leancloud_visitors" data-flag-title="通配符模式匹配">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>给定一个字符串和包含’<em>‘和’？’通配符的模式，其中’？’可以匹配输入字符串中的任何单个字符，’</em>‘可以匹配任意数量的字符，包括零字符，设计一个有效的算法 以查找模式是否与完整的输入字符串匹配。<br>例如，<br>输入：xyxzzxy  x <strong><em> y<br>输出：yes<br>输入：xyxzzxy  x </em></strong> x<br>输出：no<br>输入：xyxzzxy  x <em>** x？<br>输出：yes<br>输入：xyxzzxy  </em><br>输出：yes</p>
+<hr>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A085 &#123;</span><br><span class="line"> // Function that matches input string with given wildcard pattern</span><br><span class="line"> public boolean isMatching(char[] str, char[] pattern) &#123;</span><br><span class="line">  // get length of string and wildcard pattern</span><br><span class="line">  int n = str.length;</span><br><span class="line">  int m = pattern.length;</span><br><span class="line">  // create a DP lookup table</span><br><span class="line">  boolean[][] T = new boolean[n + 1][m + 1];</span><br><span class="line">  // if both pattern and string is empty: match</span><br><span class="line">  T[0][0] = true;</span><br><span class="line">  // build matrix in bottom-up manner</span><br><span class="line">  for (int i = 0; i &lt;= n; i++) &#123;</span><br><span class="line">   for (int j = 1; j &lt;= m; j++) &#123;</span><br><span class="line">    if (i == 0 &amp;&amp; pattern[j - 1] == &apos;*&apos;)</span><br><span class="line">     T[i][j] = T[i][j - 1];</span><br><span class="line">    else if (pattern[j - 1] == &apos;*&apos;&amp;&amp;i &gt; 0)</span><br><span class="line">     T[i][j] = T[i - 1][j] || T[i][j - 1];</span><br><span class="line">    else if ((i &gt;= 1&amp;&amp;pattern[j - 1] == &apos;?&apos; )|| (i &gt;= 1&amp;&amp;str[i - 1] == pattern[j - 1]))</span><br><span class="line">     T[i][j] = T[i - 1][j - 1];</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  // last cell stores the answer</span><br><span class="line">  return T[n][m];</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args) &#123;</span><br><span class="line">  Scanner sc = new Scanner(System.in);</span><br><span class="line">  A085 da = new A085();</span><br><span class="line"></span><br><span class="line">  String str1 = sc.next();</span><br><span class="line">  String str2 = sc.next();</span><br><span class="line">  char[] str = str1.toCharArray();</span><br><span class="line">  char[] pattern = str2.toCharArray();</span><br><span class="line">  if (da.isMatching(str, pattern))</span><br><span class="line">   System.out.println(&quot;yes&quot;);</span><br><span class="line">  else</span><br><span class="line">   System.out.println(&quot;no&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
@@ -1758,6 +1758,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/A080—活动选择问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/27/A080—活动选择问题/" itemprop="url">活动选择问题</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T21:40:42+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/27/A080—活动选择问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/27/A080—活动选择问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/27/A080—活动选择问题/" class="leancloud_visitors" data-flag-title="活动选择问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>在活动选择问题中，我们给出不同的活动和每个活动的开始及结束时间，假设一个人在同一时间段下只能参加一场活动，找出其能够参加的活动的最大数量。(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11), (8, 12), (2, 13), (12, 14)。<br>输出格式:(1,4) (5,7) (8,11) (12,14)</p>
+<hr>
+<hr>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">//Simple pair class to store the start time and finish time</span><br><span class="line">//of the activities</span><br><span class="line">class Pair</span><br><span class="line">&#123;</span><br><span class="line"> private int start, finish;</span><br><span class="line"></span><br><span class="line"> public Pair(int start, int finish) &#123;</span><br><span class="line">     this.start = start;</span><br><span class="line">     this.finish = finish;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public int getFinish() &#123;</span><br><span class="line">     return finish;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public int getStart() &#123;</span><br><span class="line">     return start;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public String toString() &#123;</span><br><span class="line">     return &quot;(&quot; + getStart() + &quot; &quot; + getFinish() + &quot;)&quot;;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">public class A080</span><br><span class="line">&#123;</span><br><span class="line"> public static Set&lt;Integer&gt; selectActivity(List&lt;Pair&gt; activities)</span><br><span class="line"> &#123;</span><br><span class="line">     int k = 0;</span><br><span class="line">     Set&lt;Integer&gt; out = new HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">     out.add(0);</span><br><span class="line">     for (int i = 1; i &lt; activities.size(); i++)</span><br><span class="line">     &#123;</span><br><span class="line">         if (activities.get(i).getStart() &gt;= activities.get(k).getFinish())</span><br><span class="line">         &#123;</span><br><span class="line">             out.add(i);</span><br><span class="line">             k = i;    </span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     return out;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> public static void main(String[] args)</span><br><span class="line"> &#123;</span><br><span class="line">     List&lt;Pair&gt; activities = Arrays.asList(new Pair(1, 4), new Pair(3, 5),</span><br><span class="line">             new Pair(0, 6), new Pair(5, 7), new Pair(3, 8),</span><br><span class="line">             new Pair(5, 9), new Pair(6, 10), new Pair(8, 11),</span><br><span class="line">             new Pair(8, 12), new Pair(2, 13), new Pair(12, 14));</span><br><span class="line"></span><br><span class="line">     Collections.sort(activities, (a, b) -&gt; a.getFinish() - b.getFinish());</span><br><span class="line"></span><br><span class="line">     Set&lt;Integer&gt; res = selectActivity(activities);</span><br><span class="line"></span><br><span class="line">     for (Integer i: res) &#123;</span><br><span class="line">         System.out.print(activities.get(i));</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/A079—找到可以从给定的通配符模式形成的所有二进制字符串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1888,189 +2071,6 @@
 <hr>
 <hr>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line">import java.lang.*;</span><br><span class="line">import java.io.*;</span><br><span class="line"> </span><br><span class="line">public class A079</span><br><span class="line">&#123;   </span><br><span class="line">    public static void print(char str[], int index)</span><br><span class="line">    &#123;</span><br><span class="line">        if (index == str.length)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(str);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        if (str[index] == &apos;?&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            str[index] = &apos;0&apos;;</span><br><span class="line">            print(str, index + 1);</span><br><span class="line">            str[index] = &apos;1&apos;;</span><br><span class="line">            print(str, index + 1);</span><br><span class="line">            str[index] = &apos;?&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            print(str, index + 1);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String s = input.nextLine();</span><br><span class="line">        input.close();</span><br><span class="line">        char[] str = s.toCharArray();</span><br><span class="line">        print(str, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-
-          
-        
-      
-    </div>
-	
-    
-    
-    
-	<div>
-	  
-	</div>
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/A078—查找给定字符串的所有排列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王海林">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/27/A078—查找给定字符串的所有排列/" itemprop="url">查找给定字符串的所有排列</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T21:40:42+08:00">
-                2018-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/27/A078—查找给定字符串的所有排列/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/27/A078—查找给定字符串的所有排列/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/05/27/A078—查找给定字符串的所有排列/" class="leancloud_visitors" data-flag-title="查找给定字符串的所有排列">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>输入一个字符串，找出他的所有排列组合<br>输入：ABC<br>输出：ABC ACB BAC BCA CBA CAB </p>
-<hr>
-<hr>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class A078 &#123;</span><br><span class="line">	</span><br><span class="line">	 public static void permutation(char[] s,int from,int to) &#123;</span><br><span class="line">	        if(to &lt;= 1)</span><br><span class="line">	            return;</span><br><span class="line">	        if(from == to) &#123;</span><br><span class="line">	            System.out.print(s);</span><br><span class="line">	            System.out.print(&quot; &quot;);</span><br><span class="line">	        &#125; else &#123;</span><br><span class="line">	            for(int i=from; i&lt;=to; i++) &#123;</span><br><span class="line">	                swap(s,i,from); //交换前缀，使其产生下一个前缀</span><br><span class="line">	                permutation(s, from+1, to);</span><br><span class="line">	                swap(s,from,i); //将前缀换回，继续做上一个前缀的排列</span><br><span class="line">	            &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	    public static void swap(char[] s,int i,int j) &#123;</span><br><span class="line">	        char tmp = s[i];</span><br><span class="line">	        s[i] = s[j];</span><br><span class="line">	        s[j] = tmp;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	    public static void main(String[] args) &#123;</span><br><span class="line">	    	char[] s=new char[3]; </span><br><span class="line">	    	Scanner input=new Scanner(System.in);</span><br><span class="line">	    	s=input.next().toCharArray();</span><br><span class="line">	    	input.close();</span><br><span class="line">	        permutation(s, 0, 2);</span><br><span class="line">	    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
           
