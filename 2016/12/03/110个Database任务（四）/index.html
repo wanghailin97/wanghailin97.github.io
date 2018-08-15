@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Database," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:schoolcreate database school; use school; /*学生表 sid 学生编号,sname 学生姓名,sage 出生年月,ssex 学生性别*/ create table student( sid varchar(10),sname varchar(10)">
+<meta name="keywords" content="Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="110个Database练习任务(四)">
+<meta property="og:url" content="http://yoursite.com/2016/12/03/110个Database任务（四）/index.html">
+<meta property="og:site_name" content="王海林">
+<meta property="og:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:schoolcreate database school; use school; /*学生表 sid 学生编号,sname 学生姓名,sage 出生年月,ssex 学生性别*/ create table student( sid varchar(10),sname varchar(10)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-19T11:20:18.737Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="110个Database练习任务(四)">
+<meta name="twitter:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:schoolcreate database school; use school; /*学生表 sid 学生编号,sname 学生姓名,sage 出生年月,ssex 学生性别*/ create table student( sid varchar(10),sname varchar(10)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/03/110个Database任务（四）/"/>
+
+
+
+
+
+  <title>110个Database练习任务(四) | 王海林</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王海林</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">风扬云往</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/03/110个Database任务（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">110个Database练习任务(四)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-03T21:10:42+08:00">
+                2016-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/03/110个Database任务（四）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/03/110个Database任务（四）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/12/03/110个Database任务（四）/" class="leancloud_visitors" data-flag-title="110个Database练习任务(四)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！</p>
+<hr>
+<h3 id="database-school"><a href="#database-school" class="headerlink" title="database:school"></a>database:school</h3><pre><code>create database school;
+use school;
+/*学生表
+sid 学生编号,sname 学生姓名,sage 出生年月,ssex 学生性别*/
+create table student(
+sid varchar(10),sname varchar(10),
+sbirth varchar(10),ssex varchar(10));
+
+INSERT INTO student VALUES(&apos;01&apos; , &apos;赵雷&apos; , &apos;1990-01-01&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;02&apos; , &apos;钱电&apos; , &apos;1990-12-21&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;03&apos; , &apos;孙风&apos; , &apos;1990-05-20&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;04&apos; , &apos;李云&apos; , &apos;1990-08-06&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;05&apos; , &apos;周梅&apos; , &apos;1991-12-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;06&apos; , &apos;吴兰&apos; , &apos;1992-03-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;07&apos; , &apos;郑竹&apos; , &apos;1989-07-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;08&apos; , &apos;王菊&apos; , &apos;1990-01-20&apos; , &apos;女&apos;); 
+
+/*课程表
+cid 课程编号,cname 课程名称,tid 教师编号*/ 
+create table course(cid varchar(10),cname varchar(10),tid varchar(10));
+
+INSERT INTO course VALUES(&apos;01&apos; , &apos;语文&apos; , &apos;02&apos;); 
+INSERT INTO course VALUES(&apos;02&apos; , &apos;数学&apos; , &apos;01&apos;); 
+INSERT INTO course VALUES(&apos;03&apos; , &apos;英语&apos; , &apos;03&apos;); 
+
+/*教师表
+tid 教师编号,tname 教师姓名*/
+create table teacher(tid varchar(10),tname varchar(10));
+INSERT INTO teacher VALUES(&apos;01&apos; , &apos;张三&apos;); 
+INSERT INTO teacher VALUES(&apos;02&apos; , &apos;李四&apos;); 
+INSERT INTO teacher VALUES(&apos;03&apos; , &apos;王五&apos;); 
+
+/*成绩表
+sid 学生编号,cid 课程编号,score 分数 */
+create table sc(sid varchar(10),cid varchar(10),score int(10)); 
+
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;01&apos; , 80); 
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;02&apos; , 90); 
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;03&apos; , 99); 
+
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;01&apos; , 70); 
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;02&apos; , 60); 
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;03&apos; , 80); 
+
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;01&apos; , 80); 
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;02&apos; , 80); 
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;03&apos; , 80); 
+
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;01&apos; , 50); 
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;02&apos; , 30); 
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;03&apos; , 20); 
+
+INSERT INTO sc VALUES(&apos;05&apos; , &apos;01&apos; , 76); 
+INSERT INTO sc VALUES(&apos;05&apos; , &apos;02&apos; , 87); 
+
+INSERT INTO sc VALUES(&apos;06&apos; , &apos;01&apos; , 31); 
+INSERT INTO sc VALUES(&apos;06&apos; , &apos;03&apos; , 34); 
+
+INSERT INTO sc VALUES(&apos;07&apos; , &apos;02&apos; , 89); 
+INSERT INTO sc VALUES(&apos;07&apos; , &apos;03&apos; , 98); 
+</code></pre><h3 id="D061-查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息"><a href="#D061-查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息" class="headerlink" title="D061.查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息"></a>D061.查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息</h3><pre><code>use school;
+#法一
+select distinct s.* from student s
+left join sc on sc.sid=s.sid
+where s.sid!=01
+and sc.cid in (01,02,03);
+
+#法二
+select distinct s.* from student s,sc
+where s.sid=sc.sid 
+and sc.cid in (
+select cid from sc where sc.sid=01)
+and s.sid!=01;
+</code></pre><h3 id="D062-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"><a href="#D062-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩" class="headerlink" title="D062.查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"></a>D062.查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</h3><pre><code>use school;
+select s.sid,s.sname,avg(sc.score) as &quot;平均成绩&quot; from student s,sc
+where sc.sid=s.sid
+and s.sid in (
+select sc.sid from sc 
+where sc.score&lt;60 group by sc.sid having count(sc.cid)&gt;=2)
+group by s.sid,sc.sid;
+
+select s.sid,s.sname,avg(sc.score) as &quot;平均成绩&quot; from student s,sc
+where sc.sid=s.sid
+and s.sid in (
+select sc.sid from sc 
+where sc.score&lt;60 group by sc.sid having count(1)&gt;=2)
+group by s.sid,sc.sid;
+</code></pre><h3 id="D063-检索”01”课程分数小于60，按分数降序排列的学生信息"><a href="#D063-检索”01”课程分数小于60，按分数降序排列的学生信息" class="headerlink" title="D063.检索”01”课程分数小于60，按分数降序排列的学生信息"></a>D063.检索”01”课程分数小于60，按分数降序排列的学生信息</h3><pre><code>use school;
+select s.*,sc.score as &quot;01课程分数&quot; from student s,sc
+where s.sid=sc.sid
+and sc.score&lt;60 
+and sc.cid=01 group by sc.sid
+order by sc.score desc;
+</code></pre><h3 id="D064-查询学生的总成绩和信息并进行排名"><a href="#D064-查询学生的总成绩和信息并进行排名" class="headerlink" title="D064.查询学生的总成绩和信息并进行排名"></a>D064.查询学生的总成绩和信息并进行排名</h3><pre><code>use school;
+select s.*,sum(sc.score) as &quot;总成绩&quot; from student s,sc
+where s.sid=sc.sid group by s.sid order by sum(sc.score) desc;
+</code></pre><h3 id="D065-查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）"><a href="#D065-查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）" class="headerlink" title="D065.查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）"></a>D065.查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）</h3><pre><code>use school;
+select t.tid,t.tname,avg(sc.score) as &quot;平均分数&quot; from teacher t,sc,course c
+where t.tid=c.tid
+and c.cid = sc.cid group by sc.cid
+order by avg(sc.score) desc;
+</code></pre><h3 id="D066-查询1990年出生的学生名单"><a href="#D066-查询1990年出生的学生名单" class="headerlink" title="D066.查询1990年出生的学生名单"></a>D066.查询1990年出生的学生名单</h3><pre><code>use school;
+select s.* from student s
+where s.sbirth like &apos;1990%&apos;
+</code></pre><h3 id="D067-查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序"><a href="#D067-查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序" class="headerlink" title="D067.查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序"></a>D067.查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序</h3><pre><code>use school;
+select c.*,avg(sc.score) as &quot;平均成绩&quot; from course c,sc
+where c.cid=sc.cid group by c.cid
+order by avg(sc.score) desc,c.cid;
+</code></pre><h3 id="D068-查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩"><a href="#D068-查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩" class="headerlink" title="D068.查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩"></a>D068.查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</h3><pre><code>use school;
+select s.sid,s.sname,avg(sc.score) as &quot;平均成绩&quot; from student s,sc
+where s.sid=sc.sid
+group by s.sid,sc.sid
+having avg(sc.score)&gt;=85
+order by avg(sc.score) desc;
+</code></pre><h3 id="D069-查询课程名称为”数学”，且分数低于60的学生姓名和分数"><a href="#D069-查询课程名称为”数学”，且分数低于60的学生姓名和分数" class="headerlink" title="D069. 查询课程名称为”数学”，且分数低于60的学生姓名和分数"></a>D069. 查询课程名称为”数学”，且分数低于60的学生姓名和分数</h3><pre><code>use school;
+select s.sname,sc.score from student s,sc
+where s.sid=sc.sid
+and sc.cid in (
+select c.cid from course c where c.cname=&quot;数学&quot;)
+order by sc.score desc;
+</code></pre><h3 id="D070-查询所有学生的信息、课程及分数情况"><a href="#D070-查询所有学生的信息、课程及分数情况" class="headerlink" title="D070.查询所有学生的信息、课程及分数情况"></a>D070.查询所有学生的信息、课程及分数情况</h3><pre><code>use school;
+/*select s.*,a.score as &quot;语文成绩&quot;,b.score as &quot;数学成绩&quot;,c.score as &quot;英语成绩&quot;
+from student s,sc a,sc b,sc c
+where s.sid=a.sid and s.sid=b.sid and         s.sid=c.sid
+and a.cid=01 and b.cid=02 and c.cid=03
+group by s.sid; */##这个只能检索三科都学的学生成绩
+
+#法一
+select s.*,c.cid,c.cname,sc.score from sc 
+inner join student s on s.sid=sc.sid 
+inner join course c on sc.cid=c.cid;
+
+#法二
+select s.*,sc1.score as &quot;语文成绩&quot;,sc2.score as &quot;数学成绩&quot;,sc3.score as &quot;英语成绩&quot;
+from student s
+left join sc sc1 on sc1.sid=s.sid and sc1.cid=01
+left join sc sc2 on sc2.sid=s.sid and sc2.cid=02
+left join sc sc3 on sc3.sid=s.sid and sc3.cid=03;
+</code></pre><h3 id="D071-查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数"><a href="#D071-查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数" class="headerlink" title="D071.查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数"></a>D071.查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数</h3><pre><code>use school;
+select s.sname,c.cname,sc.score from sc
+inner join student s on s.sid=sc.sid
+inner join course c on sc.cid=c.cid
+where sc.score&gt;70
+and count(c.cname)=3 group by c.cname;
+
+select s.sname,c.cname,sc.score from student s,sc,course c
+where s.sid=sc.sid 
+and sc.cid=c.cid
+and sc.score&gt;=70;
+</code></pre><h3 id="D072-查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名"><a href="#D072-查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名" class="headerlink" title="D072.查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名"></a>D072.查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名</h3><pre><code>use school;
+select s.sid,s.sname,sc.score from student s
+left join sc on sc.sid=s.sid
+where sc.cid=01 and sc.score&gt;=80;
+</code></pre><h3 id="D073-查询每门课程的编号和学生人数"><a href="#D073-查询每门课程的编号和学生人数" class="headerlink" title="D073.查询每门课程的编号和学生人数"></a>D073.查询每门课程的编号和学生人数</h3><pre><code>use school;
+select sc.cid,count(sc.sid) as &quot;学生人数&quot; from sc
+group by sc.cid;
+</code></pre><h3 id="D074-查询各学生的信息以及他们的年龄"><a href="#D074-查询各学生的信息以及他们的年龄" class="headerlink" title="D074.查询各学生的信息以及他们的年龄"></a>D074.查询各学生的信息以及他们的年龄</h3><pre><code>use school;
+select s.*,year(now())-s.sbirth as &quot;年龄&quot; from student s;
+</code></pre><h3 id="D075-为sc表加外键-sid-被student表的sid字段约束"><a href="#D075-为sc表加外键-sid-被student表的sid字段约束" class="headerlink" title="D075.为sc表加外键 sid 被student表的sid字段约束"></a>D075.为sc表加外键 sid 被student表的sid字段约束</h3><pre><code>use school;
+desc sc;
+alter table sc engine = InnoDB;
+alter table `sc` add constraint `fk_sid` foreign key(`sid`) references `student`(`sid`); 
+</code></pre><h3 id="D076-删除sc表的sid外键"><a href="#D076-删除sc表的sid外键" class="headerlink" title="D076.删除sc表的sid外键"></a>D076.删除sc表的sid外键</h3><pre><code>use school;
+alter table sc drop foreign key sid;
+</code></pre><h3 id="D077-查询没学过”张三”老师讲授的任一门课程的学生信息"><a href="#D077-查询没学过”张三”老师讲授的任一门课程的学生信息" class="headerlink" title="D077.查询没学过”张三”老师讲授的任一门课程的学生信息"></a>D077.查询没学过”张三”老师讲授的任一门课程的学生信息</h3><pre><code>use school;
+select s.* from student s
+where s.sid not in (
+select sc.sid from sc 
+left join course c on c.cid=sc.cid
+left join teacher t on t.tid=c.tid
+where t.tname=&quot;张三&quot;
+) group by s.sid;
+</code></pre><h3 id="D078-按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩"><a href="#D078-按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩" class="headerlink" title="D078.按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩"></a>D078.按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩</h3><pre><code>use school;
+/*select s.*,sc1.score as &quot;语文&quot;, sc2.score as &quot;数学&quot;, 
+sc3.score as &quot;英语&quot;, avg(sc4.score) as &quot;平均成绩&quot;
+from student s,sc sc1,sc sc2,sc sc3,sc sc4
+where s.sid=sc1.sid and s.sid=sc2.sid and s.sid=sc3.sid
+and sc1.cid=01 and sc2.cid=02 and sc3.cid=03
+group by s.sid;*/
+##这个只能检索三科都学过的学生成绩
+
+select s.*,sc1.score as &quot;语文&quot;, sc2.score as &quot;数学&quot;, 
+sc3.score as &quot;英语&quot;, avg(sc4.score) as &quot;平均成绩&quot;
+from student s
+left join sc sc1 on sc1.sid=s.sid
+and sc1.cid=01 
+left join sc sc2 on sc2.sid=s.sid
+and sc2.cid=02  
+left join sc sc3 on sc3.sid=s.sid
+and sc3.cid=03 
+left join sc sc4 on sc4.sid=s.sid
+group by s.sid;
+</code></pre><h3 id="D079-查询学生的信息、平均成绩及其名次"><a href="#D079-查询学生的信息、平均成绩及其名次" class="headerlink" title="D079.查询学生的信息、平均成绩及其名次"></a>D079.查询学生的信息、平均成绩及其名次</h3><pre><code>use school;
+select t.*, px = rank() over(order by avg(sc.score) desc) from
+(
+select s.*,avg(sc.score) as &quot;平均成绩&quot;
+from student s left join sc on sc.sid=s.sid
+group by s.sid
+) as t
+order by px;
+
+select s.*,avg(sc.score) as &quot;平均成绩&quot;
+from student s 
+left join sc on sc.sid=s.sid
+group by s.sid;
+</code></pre><h3 id="D080-查询各科成绩前三名的学生编号，课程编号，成绩，名次"><a href="#D080-查询各科成绩前三名的学生编号，课程编号，成绩，名次" class="headerlink" title="D080.查询各科成绩前三名的学生编号，课程编号，成绩，名次"></a>D080.查询各科成绩前三名的学生编号，课程编号，成绩，名次</h3><pre><code>use school;
+select* from (
+select t.* , px = (select count(distinct score) from sc where cid = t.cid and score &gt;= t.score) from sc t) m 
+where px between 1 and 3 order by m.cid , m.px;
+</code></pre><h3 id="D081-查询出只有两门课程的全部学生的信息和所学课程数"><a href="#D081-查询出只有两门课程的全部学生的信息和所学课程数" class="headerlink" title="D081.查询出只有两门课程的全部学生的信息和所学课程数"></a>D081.查询出只有两门课程的全部学生的信息和所学课程数</h3><pre><code>use school;
+select s.*, count(sc.cid) as &quot;课程数量&quot; from student s
+left join sc on s.sid=sc.sid
+group by sc.sid having count(sc.cid)=2;
+</code></pre><h3 id="D082-查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩"><a href="#D082-查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩" class="headerlink" title="D082.查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩"></a>D082.查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩</h3><pre><code>use school;
+select s.*, sc.score from student s
+left join sc on s.sid=sc.sid
+left join course c on sc.cid=c.cid
+left join teacher t on c.tid=t.tid
+where t.tname=&quot;张三&quot; 
+order by sc.score desc limit 1; 
+</code></pre><h3 id="D083-查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩"><a href="#D083-查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩" class="headerlink" title="D083.查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩"></a>D083.查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩</h3><pre><code>use school;
+select sc.* from sc,
+(select cid, score from sc group by cid,score having count(1)&gt;1) as n
+where sc.cid=n.cid and sc.score=n.score order by sc.cid,sc.score,sc.sid;
+</code></pre><h3 id="D084-查询每门课程成绩最好的前两名-的学号，课程编号，成绩"><a href="#D084-查询每门课程成绩最好的前两名-的学号，课程编号，成绩" class="headerlink" title="D084.查询每门课程成绩最好的前两名 的学号，课程编号，成绩"></a>D084.查询每门课程成绩最好的前两名 的学号，课程编号，成绩</h3><pre><code>use school;
+select sc1.* from sc sc1 
+where score in (
+select score from sc sc2 
+where sc1.cid = sc2.cid 
+order by score desc limit 2
+) 
+order by sc1.cid,sc1.score desc;
+</code></pre><h3 id="D085-统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列"><a href="#D085-统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列" class="headerlink" title="D085.统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列"></a>D085.统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</h3><pre><code>use school;
+select course.cid , course.cname , count(*) as &quot;学生人数&quot;
+from course , sc
+where course.cid = sc.cid
+group by  course.cid , course.cname
+having count(*) &gt;= 5
+order by count(*) desc , course.cid;
+</code></pre>
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>给我支持和鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mr.Wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/10/110个Database任务（三）/" rel="next" title="110个Database练习任务(三)">
+                <i class="fa fa-chevron-left"></i> 110个Database练习任务(三)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/28/110个Database任务（五）/" rel="prev" title="110个Database练习任务(五)">
+                110个Database练习任务(五) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Mr.Wang" />
+            
+              <p class="site-author-name" itemprop="name">Mr.Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#database-school"><span class="nav-number">1.</span> <span class="nav-text">database:school</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D061-查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息"><span class="nav-number">2.</span> <span class="nav-text">D061.查询至少有一门课与学号为”01”的同学所学相同课程的同学的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D062-查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩"><span class="nav-number">3.</span> <span class="nav-text">D062.查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D063-检索”01”课程分数小于60，按分数降序排列的学生信息"><span class="nav-number">4.</span> <span class="nav-text">D063.检索”01”课程分数小于60，按分数降序排列的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D064-查询学生的总成绩和信息并进行排名"><span class="nav-number">5.</span> <span class="nav-text">D064.查询学生的总成绩和信息并进行排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D065-查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）"><span class="nav-number">6.</span> <span class="nav-text">D065.查询老师所教课程的平均分、老师编号、老师姓名（按平均分从高到低显示）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D066-查询1990年出生的学生名单"><span class="nav-number">7.</span> <span class="nav-text">D066.查询1990年出生的学生名单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D067-查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序"><span class="nav-number">8.</span> <span class="nav-text">D067.查询每门课程的编号，名字，老师编号，平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D068-查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩"><span class="nav-number">9.</span> <span class="nav-text">D068.查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D069-查询课程名称为”数学”，且分数低于60的学生姓名和分数"><span class="nav-number">10.</span> <span class="nav-text">D069. 查询课程名称为”数学”，且分数低于60的学生姓名和分数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D070-查询所有学生的信息、课程及分数情况"><span class="nav-number">11.</span> <span class="nav-text">D070.查询所有学生的信息、课程及分数情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D071-查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数"><span class="nav-number">12.</span> <span class="nav-text">D071.查询任何一门课程成绩在70分以上的学生姓名、课程名称和分数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D072-查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名"><span class="nav-number">13.</span> <span class="nav-text">D072.查询课程编号为01且课程成绩在80分及以上的学生的学号和姓名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D073-查询每门课程的编号和学生人数"><span class="nav-number">14.</span> <span class="nav-text">D073.查询每门课程的编号和学生人数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D074-查询各学生的信息以及他们的年龄"><span class="nav-number">15.</span> <span class="nav-text">D074.查询各学生的信息以及他们的年龄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D075-为sc表加外键-sid-被student表的sid字段约束"><span class="nav-number">16.</span> <span class="nav-text">D075.为sc表加外键 sid 被student表的sid字段约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D076-删除sc表的sid外键"><span class="nav-number">17.</span> <span class="nav-text">D076.删除sc表的sid外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D077-查询没学过”张三”老师讲授的任一门课程的学生信息"><span class="nav-number">18.</span> <span class="nav-text">D077.查询没学过”张三”老师讲授的任一门课程的学生信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D078-按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩"><span class="nav-number">19.</span> <span class="nav-text">D078.按平均成绩从高到低显示所有学生的信息及所学课程的成绩以及平均成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D079-查询学生的信息、平均成绩及其名次"><span class="nav-number">20.</span> <span class="nav-text">D079.查询学生的信息、平均成绩及其名次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D080-查询各科成绩前三名的学生编号，课程编号，成绩，名次"><span class="nav-number">21.</span> <span class="nav-text">D080.查询各科成绩前三名的学生编号，课程编号，成绩，名次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D081-查询出只有两门课程的全部学生的信息和所学课程数"><span class="nav-number">22.</span> <span class="nav-text">D081.查询出只有两门课程的全部学生的信息和所学课程数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D082-查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩"><span class="nav-number">23.</span> <span class="nav-text">D082.查询选修”张三”老师所授课程的学生中，成绩最高的学生信息及其成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D083-查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩"><span class="nav-number">24.</span> <span class="nav-text">D083.查询不同课程成绩相同的学生的学生编号、课程编号、学生成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D084-查询每门课程成绩最好的前两名-的学号，课程编号，成绩"><span class="nav-number">25.</span> <span class="nav-text">D084.查询每门课程成绩最好的前两名 的学号，课程编号，成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D085-统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列"><span class="nav-number">26.</span> <span class="nav-text">D085.统计每门课程的学生选修人数（超过5人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz',
+        appKey: 'dI4Y907Iitz3tCXknsYiSDkk',
+        placeholder: '评论一下吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz", "dI4Y907Iitz3tCXknsYiSDkk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

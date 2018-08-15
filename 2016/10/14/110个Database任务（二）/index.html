@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Database," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:mydatabaseuse mydatabase; create table student( id int(10),name varchar(10), gender varchar(10),class int(10),height int(10),grade int(10)); inse">
+<meta name="keywords" content="Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="110个Database练习任务(二)">
+<meta property="og:url" content="http://yoursite.com/2016/10/14/110个Database任务（二）/index.html">
+<meta property="og:site_name" content="王海林">
+<meta property="og:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:mydatabaseuse mydatabase; create table student( id int(10),name varchar(10), gender varchar(10),class int(10),height int(10),grade int(10)); inse">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-19T11:19:31.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="110个Database练习任务(二)">
+<meta name="twitter:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:mydatabaseuse mydatabase; create table student( id int(10),name varchar(10), gender varchar(10),class int(10),height int(10),grade int(10)); inse">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/14/110个Database任务（二）/"/>
+
+
+
+
+
+  <title>110个Database练习任务(二) | 王海林</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王海林</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">风扬云往</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/14/110个Database任务（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">110个Database练习任务(二)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-14T22:56:42+08:00">
+                2016-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/14/110个Database任务（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/10/14/110个Database任务（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/10/14/110个Database任务（二）/" class="leancloud_visitors" data-flag-title="110个Database练习任务(二)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！</p>
+<hr>
+<h3 id="database-mydatabase"><a href="#database-mydatabase" class="headerlink" title="database:mydatabase"></a>database:mydatabase</h3><pre><code>use mydatabase;
+create table student(
+id int(10),name varchar(10),
+gender varchar(10),class int(10),height int(10),grade int(10));
+insert into student(id,name,gender,class,height,grade)
+values(001,&quot;name1&quot;,&quot;male&quot;,18,160,90),(002,&quot;name2&quot;,&quot;male&quot;,18,165,92),
+(003,&quot;name3&quot;,&quot;female&quot;,18,170,94),(004,&quot;name4&quot;,&quot;female&quot;,19,175,96),
+(005,&quot;name5&quot;,&quot;female&quot;,19,180,98),(006,&quot;name6&quot;,&quot;male&quot;,19,185,100)
+;
+select* from student;
+drop table student;
+
+
+create table class(class_id int(10));
+insert into class(class_id)
+values(15),(16),(17),(19),(20);
+select* from class;
+drop table class;
+
+create table emp(
+eid int(10),ename varchar(10),
+title varchar(10),hiretime varchar(10),
+salary double,bonus double,dieader varchar(10))set utf8;
+</code></pre><h3 id="D023-条件查询"><a href="#D023-条件查询" class="headerlink" title="D023.条件查询"></a>D023.条件查询</h3><p>要求找出学生id为1或者3或者5的学生</p>
+<pre><code>use mydatabase;
+select* from student
+where id=1 or id=3 or id=5; 
+</code></pre><h3 id="D024-条件查询"><a href="#D024-条件查询" class="headerlink" title="D024.条件查询"></a>D024.条件查询</h3><p>查出区间落在180,190身高之间的学生</p>
+<pre><code>select* from student
+where height&gt;=180 and height&lt;=190;
+</code></pre><h3 id="D025-根据性别分组"><a href="#D025-根据性别分组" class="headerlink" title="D025.根据性别分组"></a>D025.根据性别分组</h3><pre><code>use mydatabase;
+select* from student
+group by gender;
+</code></pre><h3 id="D026-查询学生的姓名、身高，默认以身高的升序排序"><a href="#D026-查询学生的姓名、身高，默认以身高的升序排序" class="headerlink" title="D026.查询学生的姓名、身高，默认以身高的升序排序"></a>D026.查询学生的姓名、身高，默认以身高的升序排序</h3><pre><code>use mydatabase;
+select id height from student order by height;
+</code></pre><h3 id="D027-求出所有班级人数大于2的学生人数和班级id"><a href="#D027-求出所有班级人数大于2的学生人数和班级id" class="headerlink" title="D027.求出所有班级人数大于2的学生人数和班级id"></a>D027.求出所有班级人数大于2的学生人数和班级id</h3><p>学生表中的字段有id,name(姓名),number(学号),sex(性别),c_id（班级）,插入几组自定义的数据，查询所有班级人数大于2的学生人数和班级id。</p>
+<pre><code>use mydatabase;
+select class,count(*) from student
+group by class having count(*)&gt;2;
+</code></pre><h3 id="D028-查询学生，限制人数为2"><a href="#D028-查询学生，限制人数为2" class="headerlink" title="D028.查询学生，限制人数为2"></a>D028.查询学生，限制人数为2</h3><pre><code>use mydatabase;
+select* from student limit 2;
+</code></pre><h3 id="D029-查询学生表和班级表"><a href="#D029-查询学生表和班级表" class="headerlink" title="D029.查询学生表和班级表"></a>D029.查询学生表和班级表</h3><p>多表查询my_student表和my_class表，使用where 条件查询my_student表中的c_id = my_class表中id的记录。</p>
+<pre><code>use mydatabase;
+select* from student,class
+where class = class_id;
+</code></pre><h3 id="D030-查询学生表和班级表"><a href="#D030-查询学生表和班级表" class="headerlink" title="D030.查询学生表和班级表"></a>D030.查询学生表和班级表</h3><p>多表查询my_student表和my_class表，使用左连接查询my_student表中的c_id = my_class表中id的记录。</p>
+<pre><code>use mydatabase;
+select* from student
+left join class on class=class_id;
+</code></pre><h3 id="D031-查询员工姓名及所做工作"><a href="#D031-查询员工姓名及所做工作" class="headerlink" title="D031.查询员工姓名及所做工作"></a>D031.查询员工姓名及所做工作</h3><p>员工表emp：员工编号（eid)，姓名（ename），工作职位（title），雇佣日期(hiretime)，每月工资（salary），年奖金（bonus），部门(depart) </p>
+<p>部门表dept：部门编号（did），部门名称（dname), 部门领导编号（dleader) </p>
+<p>员工数据： </p>
+<p>(1001,’张三’,’销售’,’1999-12-1’,3000.0,1100.0,’102’), </p>
+<p>(1002,’李四’,’研发员’,’1998-2-11’,3500.0,null,’101’), </p>
+<p>(1003,’王五’,’研发员’,’2001-1-15’,4000.0,null,’101’ ), </p>
+<p>(1004,’赵六’,’美工’,’2001-12-1’,4000.0,null,’101’), </p>
+<p>(1005,’武六奇’,’研发员’,’2001-7-1’,5500.0,null,’101’), </p>
+<p>(1006,’齐八九’,’销售’,’2001-6-16’,3000.0,1500.0,’102’), </p>
+<p>(1007,’钱多多’,’经理’,’2009-11-10’,6500.0,2000.0,’102’ ), </p>
+<p>(1008,’张一一’,’销售’,’2007-12-10’,3800.0,1000.0,’102’ ), </p>
+<p>(1009,’李丽丽’,’研发员’,’1999-8-19’,4500.0,null,’101’ ), </p>
+<p>(1010,’王旺旺’,’销售’,’1999-9-1’,3600.0,1600.0,’102’ ), </p>
+<p>(1011,’赵有才’,’经理’,’1999-4-30’,7000.0,1800.0,’101’ ), </p>
+<p>(1012,’李雷’,’出纳’,’2007-10-10’,5000.0,500.0,’103’ ),</p>
+<p>(1013,’韩梅’,’会计’,’2005-3-1’,6600.0,1000.0,’103’ ), </p>
+<p>(1014,’张向阳’,’经理’,’2002-6-1’,7000.0,1500.0,’103’ ), </p>
+<p>(1015,’李向东’,’销售’,’2004-5-1’,4300.0,1000.0,’102’);</p>
+<p>部门数据: </p>
+<p>(‘101’,’研发部’,1007 ), </p>
+<p>(‘102’,’销售部’,1011 ), </p>
+<p>(‘103’,’财务部’,1014);</p>
+<pre><code>use mydatabase;
+select ename,title from emp;
+</code></pre><h3 id="D032-查询员工姓名及年薪"><a href="#D032-查询员工姓名及年薪" class="headerlink" title="D032.查询员工姓名及年薪"></a>D032.查询员工姓名及年薪</h3><pre><code>use mydatabase;
+select ename,salary from emp;
+</code></pre><h3 id="D033-查询月工资大于4000的员工信息"><a href="#D033-查询月工资大于4000的员工信息" class="headerlink" title="D033.查询月工资大于4000的员工信息"></a>D033.查询月工资大于4000的员工信息</h3><pre><code>select* from emp
+where salary&gt;4000;
+</code></pre><h3 id="D034-查询年薪大于20000的员工信息"><a href="#D034-查询年薪大于20000的员工信息" class="headerlink" title="D034.查询年薪大于20000的员工信息"></a>D034.查询年薪大于20000的员工信息</h3><pre><code>select* from emp
+where 12*salary&gt;20000;
+</code></pre><h3 id="D035-查询没有奖金的员工信息"><a href="#D035-查询没有奖金的员工信息" class="headerlink" title="D035.查询没有奖金的员工信息"></a>D035.查询没有奖金的员工信息</h3><pre><code>select* from emp
+where bonus is null;
+</code></pre><h3 id="D036-查询月工资大于3000同时有奖金的员工信息"><a href="#D036-查询月工资大于3000同时有奖金的员工信息" class="headerlink" title="D036.查询月工资大于3000同时有奖金的员工信息"></a>D036.查询月工资大于3000同时有奖金的员工信息</h3><pre><code>select* from emp
+where salary&gt;3000 and
+bonus is not null;
+</code></pre><h3 id="D037-查询月工资大于3500但是小于5000的员工信息"><a href="#D037-查询月工资大于3500但是小于5000的员工信息" class="headerlink" title="D037.查询月工资大于3500但是小于5000的员工信息"></a>D037.查询月工资大于3500但是小于5000的员工信息</h3><pre><code>select* from emp
+where salary&gt;3000
+and salary&lt;5000;
+</code></pre><h3 id="D038-查询编号是1001、1003、1004的员工信息"><a href="#D038-查询编号是1001、1003、1004的员工信息" class="headerlink" title="D038.查询编号是1001、1003、1004的员工信息"></a>D038.查询编号是1001、1003、1004的员工信息</h3><pre><code>select* from emp
+where eid in (1001 , 1003 , 1004);
+</code></pre><h3 id="D039-分组统计"><a href="#D039-分组统计" class="headerlink" title="D039.分组统计"></a>D039.分组统计</h3><p>在my_student表中，根据性别分组，使用函数统计出男女分别的身高最高、最低、平均年龄、总年龄</p>
+<pre><code>select max(height),min(height),avg(grade),sum(grade) 
+from student group by gender;
+</code></pre><h3 id="D040-在my-student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male-2-张三，王五）"><a href="#D040-在my-student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male-2-张三，王五）" class="headerlink" title="D040.在my_student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male| 2| 张三，王五）"></a>D040.在my_student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male| 2| 张三，王五）</h3><pre><code>select gender,count(*),name from student group by gender;
+</code></pre>
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>给我支持和鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mr.Wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/02/110个Database任务（一）/" rel="next" title="110个Database练习任务(一)">
+                <i class="fa fa-chevron-left"></i> 110个Database练习任务(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/10/110个Database任务（三）/" rel="prev" title="110个Database练习任务(三)">
+                110个Database练习任务(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Mr.Wang" />
+            
+              <p class="site-author-name" itemprop="name">Mr.Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#database-mydatabase"><span class="nav-number">1.</span> <span class="nav-text">database:mydatabase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D023-条件查询"><span class="nav-number">2.</span> <span class="nav-text">D023.条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D024-条件查询"><span class="nav-number">3.</span> <span class="nav-text">D024.条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D025-根据性别分组"><span class="nav-number">4.</span> <span class="nav-text">D025.根据性别分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D026-查询学生的姓名、身高，默认以身高的升序排序"><span class="nav-number">5.</span> <span class="nav-text">D026.查询学生的姓名、身高，默认以身高的升序排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D027-求出所有班级人数大于2的学生人数和班级id"><span class="nav-number">6.</span> <span class="nav-text">D027.求出所有班级人数大于2的学生人数和班级id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D028-查询学生，限制人数为2"><span class="nav-number">7.</span> <span class="nav-text">D028.查询学生，限制人数为2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D029-查询学生表和班级表"><span class="nav-number">8.</span> <span class="nav-text">D029.查询学生表和班级表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D030-查询学生表和班级表"><span class="nav-number">9.</span> <span class="nav-text">D030.查询学生表和班级表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D031-查询员工姓名及所做工作"><span class="nav-number">10.</span> <span class="nav-text">D031.查询员工姓名及所做工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D032-查询员工姓名及年薪"><span class="nav-number">11.</span> <span class="nav-text">D032.查询员工姓名及年薪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D033-查询月工资大于4000的员工信息"><span class="nav-number">12.</span> <span class="nav-text">D033.查询月工资大于4000的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D034-查询年薪大于20000的员工信息"><span class="nav-number">13.</span> <span class="nav-text">D034.查询年薪大于20000的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D035-查询没有奖金的员工信息"><span class="nav-number">14.</span> <span class="nav-text">D035.查询没有奖金的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D036-查询月工资大于3000同时有奖金的员工信息"><span class="nav-number">15.</span> <span class="nav-text">D036.查询月工资大于3000同时有奖金的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D037-查询月工资大于3500但是小于5000的员工信息"><span class="nav-number">16.</span> <span class="nav-text">D037.查询月工资大于3500但是小于5000的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D038-查询编号是1001、1003、1004的员工信息"><span class="nav-number">17.</span> <span class="nav-text">D038.查询编号是1001、1003、1004的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D039-分组统计"><span class="nav-number">18.</span> <span class="nav-text">D039.分组统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D040-在my-student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male-2-张三，王五）"><span class="nav-number">19.</span> <span class="nav-text">D040.在my_student表中，按照性别分组，查询出性别、个数、该性别的所有姓名。如（male| 2| 张三，王五）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz',
+        appKey: 'dI4Y907Iitz3tCXknsYiSDkk',
+        placeholder: '评论一下吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz", "dI4Y907Iitz3tCXknsYiSDkk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

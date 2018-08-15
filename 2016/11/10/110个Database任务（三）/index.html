@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Database," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  table:emp、deptuse mydatabase; create table emp( eid int(10),ename varchar(10), title varchar(10),hiretime varchar(10), salary double,bonus double,depart v">
+<meta name="keywords" content="Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="110个Database练习任务(三)">
+<meta property="og:url" content="http://yoursite.com/2016/11/10/110个Database任务（三）/index.html">
+<meta property="og:site_name" content="王海林">
+<meta property="og:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  table:emp、deptuse mydatabase; create table emp( eid int(10),ename varchar(10), title varchar(10),hiretime varchar(10), salary double,bonus double,depart v">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-19T11:19:33.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="110个Database练习任务(三)">
+<meta name="twitter:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  table:emp、deptuse mydatabase; create table emp( eid int(10),ename varchar(10), title varchar(10),hiretime varchar(10), salary double,bonus double,depart v">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/10/110个Database任务（三）/"/>
+
+
+
+
+
+  <title>110个Database练习任务(三) | 王海林</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王海林</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">风扬云往</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/10/110个Database任务（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">110个Database练习任务(三)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T20:30:42+08:00">
+                2016-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/10/110个Database任务（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/11/10/110个Database任务（三）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/11/10/110个Database任务（三）/" class="leancloud_visitors" data-flag-title="110个Database练习任务(三)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！</p>
+<hr>
+<h3 id="table-emp、dept"><a href="#table-emp、dept" class="headerlink" title="table:emp、dept"></a>table:emp、dept</h3><pre><code>use mydatabase;
+create table emp(
+eid int(10),ename varchar(10),
+title varchar(10),hiretime varchar(10),
+salary double,bonus double,depart varchar(10));
+insert into emp()
+values
+(1001,&apos;张三&apos;,&apos;销售&apos;,&apos;1999-12-1&apos;,3000.0,1100.0,&apos;102&apos;), 
+(1002,&apos;李四&apos;,&apos;研发员&apos;,&apos;1998-2-11&apos;,3500.0,null,&apos;101&apos;), 
+(1003,&apos;王五&apos;,&apos;研发员&apos;,&apos;2001-1-15&apos;,4000.0,null,&apos;101&apos; ), 
+(1004,&apos;赵六&apos;,&apos;美工&apos;,&apos;2001-12-1&apos;,4000.0,null,&apos;101&apos;), 
+(1005,&apos;武六奇&apos;,&apos;研发员&apos;,&apos;2001-7-1&apos;,5500.0,null,&apos;101&apos;), 
+(1006,&apos;齐八九&apos;,&apos;销售&apos;,&apos;2001-6-16&apos;,3000.0,1500.0,&apos;102&apos;), 
+(1007,&apos;钱多多&apos;,&apos;经理&apos;,&apos;2009-11-10&apos;,6500.0,2000.0,&apos;102&apos; ), 
+(1008,&apos;张一一&apos;,&apos;销售&apos;,&apos;2007-12-10&apos;,3800.0,1000.0,&apos;102&apos; ), 
+(1009,&apos;李丽丽&apos;,&apos;研发员&apos;,&apos;1999-8-19&apos;,4500.0,null,&apos;101&apos; ), 
+(1010,&apos;王旺旺&apos;,&apos;销售&apos;,&apos;1999-9-1&apos;,3600.0,1600.0,&apos;102&apos; ), 
+(1011,&apos;赵有才&apos;,&apos;经理&apos;,&apos;1999-4-30&apos;,7000.0,1800.0,&apos;101&apos; ), 
+(1012,&apos;李雷&apos;,&apos;出纳&apos;,&apos;2007-10-10&apos;,5000.0,500.0,&apos;103&apos; ), 
+(1013,&apos;韩梅&apos;,&apos;会计&apos;,&apos;2005-3-1&apos;,6600.0,1000.0,&apos;103&apos; ), 
+(1014,&apos;张向阳&apos;,&apos;经理&apos;,&apos;2002-6-1&apos;,7000.0,1500.0,&apos;103&apos; ); 
+select* from emp;
+
+
+create table dept(
+did varchar(10),dname varchar(10),dieader varchar(10)
+);
+insert into dept()
+values
+(&apos;101&apos;,&apos;研发部&apos;,1007 ), 
+(&apos;102&apos;,&apos;销售部&apos;,1011 ), 
+(&apos;103&apos;,&apos;财务部&apos;,1014);
+select* from dept;
+</code></pre><h3 id="database-school"><a href="#database-school" class="headerlink" title="database:school"></a>database:school</h3><pre><code>create database school;
+use school;
+/*学生表
+sid 学生编号,sname 学生姓名,sage 出生年月,ssex 学生性别*/
+create table student(
+sid varchar(10),sname varchar(10),
+sbirth varchar(10),ssex varchar(10));
+
+INSERT INTO student VALUES(&apos;01&apos; , &apos;赵雷&apos; , &apos;1990-01-01&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;02&apos; , &apos;钱电&apos; , &apos;1990-12-21&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;03&apos; , &apos;孙风&apos; , &apos;1990-05-20&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;04&apos; , &apos;李云&apos; , &apos;1990-08-06&apos; , &apos;男&apos;); 
+INSERT INTO student VALUES(&apos;05&apos; , &apos;周梅&apos; , &apos;1991-12-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;06&apos; , &apos;吴兰&apos; , &apos;1992-03-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;07&apos; , &apos;郑竹&apos; , &apos;1989-07-01&apos; , &apos;女&apos;); 
+INSERT INTO student VALUES(&apos;08&apos; , &apos;王菊&apos; , &apos;1990-01-20&apos; , &apos;女&apos;); 
+
+/*课程表
+cid 课程编号,cname 课程名称,tid 教师编号*/ 
+create table course(cid varchar(10),cname varchar(10),tid varchar(10));
+
+INSERT INTO course VALUES(&apos;01&apos; , &apos;语文&apos; , &apos;02&apos;); 
+INSERT INTO course VALUES(&apos;02&apos; , &apos;数学&apos; , &apos;01&apos;); 
+INSERT INTO course VALUES(&apos;03&apos; , &apos;英语&apos; , &apos;03&apos;); 
+
+/*教师表
+tid 教师编号,tname 教师姓名*/
+create table teacher(tid varchar(10),tname varchar(10));
+INSERT INTO teacher VALUES(&apos;01&apos; , &apos;张三&apos;); 
+INSERT INTO teacher VALUES(&apos;02&apos; , &apos;李四&apos;); 
+INSERT INTO teacher VALUES(&apos;03&apos; , &apos;王五&apos;); 
+
+/*成绩表
+sid 学生编号,cid 课程编号,score 分数 */
+create table sc(sid varchar(10),cid varchar(10),score int(10)); 
+
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;01&apos; , 80); 
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;02&apos; , 90); 
+INSERT INTO sc VALUES(&apos;01&apos; , &apos;03&apos; , 99); 
+
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;01&apos; , 70); 
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;02&apos; , 60); 
+INSERT INTO sc VALUES(&apos;02&apos; , &apos;03&apos; , 80); 
+
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;01&apos; , 80); 
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;02&apos; , 80); 
+INSERT INTO sc VALUES(&apos;03&apos; , &apos;03&apos; , 80); 
+
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;01&apos; , 50); 
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;02&apos; , 30); 
+INSERT INTO sc VALUES(&apos;04&apos; , &apos;03&apos; , 20); 
+
+INSERT INTO sc VALUES(&apos;05&apos; , &apos;01&apos; , 76); 
+INSERT INTO sc VALUES(&apos;05&apos; , &apos;02&apos; , 87); 
+
+INSERT INTO sc VALUES(&apos;06&apos; , &apos;01&apos; , 31); 
+INSERT INTO sc VALUES(&apos;06&apos; , &apos;03&apos; , 34); 
+
+INSERT INTO sc VALUES(&apos;07&apos; , &apos;02&apos; , 89); 
+INSERT INTO sc VALUES(&apos;07&apos; , &apos;03&apos; , 98); 
+</code></pre><h3 id="D041-在emp表中，查询编号不是1001、1003、1004的员工信息"><a href="#D041-在emp表中，查询编号不是1001、1003、1004的员工信息" class="headerlink" title="D041.在emp表中，查询编号不是1001、1003、1004的员工信息"></a>D041.在emp表中，查询编号不是1001、1003、1004的员工信息</h3><pre><code>use mydatabase;
+select* from emp
+where eid not in (1001,1003,1005);
+</code></pre><h3 id="D042-在emp表中，查询员工姓名是3个字的员工信息"><a href="#D042-在emp表中，查询员工姓名是3个字的员工信息" class="headerlink" title="D042.在emp表中，查询员工姓名是3个字的员工信息"></a>D042.在emp表中，查询员工姓名是3个字的员工信息</h3><pre><code>use mydatabase;
+select* from emp
+where char_length(ename)=3; 
+</code></pre><h3 id="D043-在emp表中-查询姓张的员工信息"><a href="#D043-在emp表中-查询姓张的员工信息" class="headerlink" title="D043.在emp表中,查询姓张的员工信息"></a>D043.在emp表中,查询姓张的员工信息</h3><pre><code>use mydatabase;
+select* from emp
+where ename regexp &apos;^张&apos;;
+</code></pre><h3 id="D044-在emp表中-查询出在99年雇佣的员工信息"><a href="#D044-在emp表中-查询出在99年雇佣的员工信息" class="headerlink" title="D044.在emp表中,查询出在99年雇佣的员工信息"></a>D044.在emp表中,查询出在99年雇佣的员工信息</h3><pre><code>use mydatabase;
+select* from emp
+where hiretime regexp &apos;^1999&apos;;
+</code></pre><h3 id="D045-在emp表中-查询出员工工资没有包含6和8的员工信息"><a href="#D045-在emp表中-查询出员工工资没有包含6和8的员工信息" class="headerlink" title="D045.在emp表中,查询出员工工资没有包含6和8的员工信息"></a>D045.在emp表中,查询出员工工资没有包含6和8的员工信息</h3><pre><code>use mydatabase;
+select* from emp
+where salary  not like &apos;%6%&apos; 
+and salary not like &apos;%8%&apos;;
+</code></pre><h3 id="D046-在emp表中-按照工资由高到低查询员工信息"><a href="#D046-在emp表中-按照工资由高到低查询员工信息" class="headerlink" title="D046.在emp表中,按照工资由高到低查询员工信息"></a>D046.在emp表中,按照工资由高到低查询员工信息</h3><pre><code>use mydatabase;
+select* from emp
+order by salary desc;
+</code></pre><h3 id="D047-在emp表中-要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序"><a href="#D047-在emp表中-要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序" class="headerlink" title="D047.在emp表中,要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序"></a>D047.在emp表中,要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序</h3><pre><code>use mydatabase;
+select* from emp
+where depart=101 order by salary desc,hiretime asc;
+</code></pre><h3 id="D048-查询101部门的所有员工信息，并显示所在部门名称"><a href="#D048-查询101部门的所有员工信息，并显示所在部门名称" class="headerlink" title="D048.查询101部门的所有员工信息，并显示所在部门名称"></a>D048.查询101部门的所有员工信息，并显示所在部门名称</h3><pre><code>use mydatabase;
+select emp.eid,ename,title,hiretime,salary,bonus,depart,dept.dname as &quot;部门名称&quot;
+from emp,dept
+where emp.depart=dept.did and emp.depart=101;
+</code></pre><h3 id="D049-查询1001员工的部门领导信息"><a href="#D049-查询1001员工的部门领导信息" class="headerlink" title="D049. 查询1001员工的部门领导信息"></a>D049. 查询1001员工的部门领导信息</h3><pre><code>use mydatabase;
+select* from emp 
+where eid = (
+select dieader from dept 
+where did = (
+select depart from emp 
+where eid = 1001
+));
+</code></pre><h3 id="D050-查询部门员工数量，平均工资，最低工资及最低工资的员工姓名"><a href="#D050-查询部门员工数量，平均工资，最低工资及最低工资的员工姓名" class="headerlink" title="D050. 查询部门员工数量，平均工资，最低工资及最低工资的员工姓名"></a>D050. 查询部门员工数量，平均工资，最低工资及最低工资的员工姓名</h3><pre><code>use mydatabase;
+select depart as &quot;部门名称&quot;,count(*) as &quot;员工数量&quot;,
+avg(salary) as &quot;平均工资&quot;,min(salary) as &quot;最低工资&quot;,
+ename as &quot;最低工资员工姓名&quot; from emp
+group by depart;
+</code></pre><h3 id="D051-查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数"><a href="#D051-查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数" class="headerlink" title="D051.查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数"></a>D051.查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数</h3><pre><code>use school;
+select a.* , b.score as &quot;课程&apos;01&apos;的分数&quot;,c.score as &quot;课程&apos;02&apos;的分数&quot; 
+from student a
+left join sc b on a.sid = b.sid and b.cid = &apos;01&apos;
+left join sc c on a.sid = c.sid and c.cid = &apos;02&apos;
+where ifnull(b.score,0) &lt; c.score;
+</code></pre><h3 id="D052-查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"><a href="#D052-查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩" class="headerlink" title="D052.查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"></a>D052.查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</h3><pre><code>use school;
+select student.sid as &quot;编号&quot;,student.sname as &quot;姓名&quot;,
+avg(sc.score) as &quot;平均成绩&quot; from student,sc
+where sc.sid=student.sid
+group by student.sid,sc.sid
+having avg(sc.score)&gt;=60;
+</code></pre><h3 id="D053-查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩"><a href="#D053-查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩" class="headerlink" title="D053.查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩"></a>D053.查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</h3><pre><code>use school;
+select student.sid,sname,count(sc.cid) as &quot;选课总数&quot;,
+sum(sc.score) as &quot;总成绩&quot; from student,sc
+where student.sid=sc.sid
+group by student.sid,sc.sid;
+</code></pre><h3 id="D054-查询”李”姓老师的数量"><a href="#D054-查询”李”姓老师的数量" class="headerlink" title="D054.查询”李”姓老师的数量"></a>D054.查询”李”姓老师的数量</h3><pre><code>use school;
+select count(t.tname) as &quot;李姓老师数量&quot; from teacher t
+where tname like &apos;李%&apos;;
+</code></pre><h3 id="D055-查询学过”张三”老师授课的同学的信息"><a href="#D055-查询学过”张三”老师授课的同学的信息" class="headerlink" title="D055.查询学过”张三”老师授课的同学的信息"></a>D055.查询学过”张三”老师授课的同学的信息</h3><pre><code>use school;
+select s.* from student s, teacher t, course c, sc
+where s.sid = sc.sid and sc.cid = 02
+group by s.sid;
+
+select s.* from student s, teacher t, course c, sc
+where s.sid = sc.sid and sc.cid = (
+select c.cid where c.tid=01)
+group by s.sid;
+
+select s.* from student s, teacher t, course c, sc
+where s.sid = sc.sid and sc.cid = (
+select c.cid where c.tid=(
+select t.tid where t.tname=&quot;张三&quot;
+))
+group by s.sid;
+</code></pre><h3 id="D056-查询没学过”张三”老师授课的同学的信息"><a href="#D056-查询没学过”张三”老师授课的同学的信息" class="headerlink" title="D056.查询没学过”张三”老师授课的同学的信息"></a>D056.查询没学过”张三”老师授课的同学的信息</h3><pre><code>use school;
+#法一
+select s.* from student s
+where s.sid not in(
+select sc.sid from sc where sc.cid=02)
+;
+#法二
+select s.* from student s
+where s.sid not in(
+select sc.sid from sc where sc.cid=(
+select c.cid from course c where c.tid=01
+));
+#法三
+select s.* from student s
+where s.sid not in(
+select sc.sid from sc where sc.cid=(
+select c.cid from course c where c.tid=(
+select t.tid from teacher t where t.tname=&quot;张三&quot;
+)));
+</code></pre><h3 id="D057-查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息"><a href="#D057-查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息" class="headerlink" title="D057. 查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息"></a>D057. 查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息</h3><pre><code>use school;
+#法一
+select s.* from student s, sc 
+where s.sid =sc.sid and sc.cid = 01 
+and exists (select 1 from sc sc_2 where sc_2.sid = sc.sid 
+and sc_2.cid = 02);
+
+#法二
+select s.* from student s, sc 
+where s.sid =sc.sid and sc.cid = 02 
+and exists (select 2 from sc sc_2 where sc_2.sid = sc.sid 
+and sc_2.cid = 01);
+</code></pre><h3 id="D058-查询没有学全所有课程的同学的信息"><a href="#D058-查询没有学全所有课程的同学的信息" class="headerlink" title="D058. 查询没有学全所有课程的同学的信息"></a>D058. 查询没有学全所有课程的同学的信息</h3><pre><code>use school;
+select s.* from student s,sc
+where s.sid = sc.sid
+group by sc.sid
+having count(sc.cid)&lt; 3;
+</code></pre><h3 id="D059-查询”01”课程比”02”课程成绩高的学生的信息及课程分数"><a href="#D059-查询”01”课程比”02”课程成绩高的学生的信息及课程分数" class="headerlink" title="D059.查询”01”课程比”02”课程成绩高的学生的信息及课程分数"></a>D059.查询”01”课程比”02”课程成绩高的学生的信息及课程分数</h3><pre><code>use school; 
+select a.* , b.score as &quot;课程&apos;01&apos;的分数&quot;,c.score as &quot;课程&apos;02&apos;的分数&quot; 
+from student a
+left join sc b on a.sid = b.sid and b.cid = &apos;01&apos;
+left join sc c on a.sid = c.sid and c.cid = &apos;02&apos;
+where b.score &gt; ifnull(c.score,0);
+</code></pre><h3 id="D060-查询学过编号为”01”但是没有学过编号为”02”的课程的同学"><a href="#D060-查询学过编号为”01”但是没有学过编号为”02”的课程的同学" class="headerlink" title="D060.查询学过编号为”01”但是没有学过编号为”02”的课程的同学"></a>D060.查询学过编号为”01”但是没有学过编号为”02”的课程的同学</h3><pre><code>use school;
+select s.* from student s, sc 
+where s.sid =sc.sid and sc.cid = 01 
+and not exists (select 01 from sc sc_2 where sc_2.sid = sc.sid 
+and sc_2.cid = 02);
+</code></pre>
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>给我支持和鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mr.Wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/14/110个Database任务（二）/" rel="next" title="110个Database练习任务(二)">
+                <i class="fa fa-chevron-left"></i> 110个Database练习任务(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/03/110个Database任务（四）/" rel="prev" title="110个Database练习任务(四)">
+                110个Database练习任务(四) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Mr.Wang" />
+            
+              <p class="site-author-name" itemprop="name">Mr.Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#table-emp、dept"><span class="nav-number">1.</span> <span class="nav-text">table:emp、dept</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#database-school"><span class="nav-number">2.</span> <span class="nav-text">database:school</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D041-在emp表中，查询编号不是1001、1003、1004的员工信息"><span class="nav-number">3.</span> <span class="nav-text">D041.在emp表中，查询编号不是1001、1003、1004的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D042-在emp表中，查询员工姓名是3个字的员工信息"><span class="nav-number">4.</span> <span class="nav-text">D042.在emp表中，查询员工姓名是3个字的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D043-在emp表中-查询姓张的员工信息"><span class="nav-number">5.</span> <span class="nav-text">D043.在emp表中,查询姓张的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D044-在emp表中-查询出在99年雇佣的员工信息"><span class="nav-number">6.</span> <span class="nav-text">D044.在emp表中,查询出在99年雇佣的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D045-在emp表中-查询出员工工资没有包含6和8的员工信息"><span class="nav-number">7.</span> <span class="nav-text">D045.在emp表中,查询出员工工资没有包含6和8的员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D046-在emp表中-按照工资由高到低查询员工信息"><span class="nav-number">8.</span> <span class="nav-text">D046.在emp表中,按照工资由高到低查询员工信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D047-在emp表中-要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序"><span class="nav-number">9.</span> <span class="nav-text">D047.在emp表中,要求查询出101部门的所有雇员信息，查询的信息按照工资由高到低排序，如果工资相等，则按照雇佣日期由早到晚排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D048-查询101部门的所有员工信息，并显示所在部门名称"><span class="nav-number">10.</span> <span class="nav-text">D048.查询101部门的所有员工信息，并显示所在部门名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D049-查询1001员工的部门领导信息"><span class="nav-number">11.</span> <span class="nav-text">D049. 查询1001员工的部门领导信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D050-查询部门员工数量，平均工资，最低工资及最低工资的员工姓名"><span class="nav-number">12.</span> <span class="nav-text">D050. 查询部门员工数量，平均工资，最低工资及最低工资的员工姓名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D051-查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数"><span class="nav-number">13.</span> <span class="nav-text">D051.查询”01”课程比”02”课程成绩低的学生的信息及课程01和02的分数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D052-查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩"><span class="nav-number">14.</span> <span class="nav-text">D052.查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D053-查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩"><span class="nav-number">15.</span> <span class="nav-text">D053.查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D054-查询”李”姓老师的数量"><span class="nav-number">16.</span> <span class="nav-text">D054.查询”李”姓老师的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D055-查询学过”张三”老师授课的同学的信息"><span class="nav-number">17.</span> <span class="nav-text">D055.查询学过”张三”老师授课的同学的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D056-查询没学过”张三”老师授课的同学的信息"><span class="nav-number">18.</span> <span class="nav-text">D056.查询没学过”张三”老师授课的同学的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D057-查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息"><span class="nav-number">19.</span> <span class="nav-text">D057. 查询学过编号为”01”并且也学过编号为”02”的课程的同学的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D058-查询没有学全所有课程的同学的信息"><span class="nav-number">20.</span> <span class="nav-text">D058. 查询没有学全所有课程的同学的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D059-查询”01”课程比”02”课程成绩高的学生的信息及课程分数"><span class="nav-number">21.</span> <span class="nav-text">D059.查询”01”课程比”02”课程成绩高的学生的信息及课程分数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D060-查询学过编号为”01”但是没有学过编号为”02”的课程的同学"><span class="nav-number">22.</span> <span class="nav-text">D060.查询学过编号为”01”但是没有学过编号为”02”的课程的同学</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz',
+        appKey: 'dI4Y907Iitz3tCXknsYiSDkk',
+        placeholder: '评论一下吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz", "dI4Y907Iitz3tCXknsYiSDkk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>

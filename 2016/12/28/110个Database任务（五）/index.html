@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Database," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:companycreate database company; use company; ##部门表dept： 部门编号(deptno)，部门名称(dname)，地址(loc)；  CREATE TABLE dept(   deptno INT PRIMARY KEY,dname VARC">
+<meta name="keywords" content="Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="110个Database练习任务(五)">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/110个Database任务（五）/index.html">
+<meta property="og:site_name" content="王海林">
+<meta property="og:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:companycreate database company; use company; ##部门表dept： 部门编号(deptno)，部门名称(dname)，地址(loc)；  CREATE TABLE dept(   deptno INT PRIMARY KEY,dname VARC">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-19T11:20:20.544Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="110个Database练习任务(五)">
+<meta name="twitter:description" content="本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！  database:companycreate database company; use company; ##部门表dept： 部门编号(deptno)，部门名称(dname)，地址(loc)；  CREATE TABLE dept(   deptno INT PRIMARY KEY,dname VARC">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/28/110个Database任务（五）/"/>
+
+
+
+
+
+  <title>110个Database练习任务(五) | 王海林</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王海林</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">风扬云往</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/28/110个Database任务（五）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王海林">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">110个Database练习任务(五)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-28T23:36:42+08:00">
+                2016-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/28/110个Database任务（五）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/28/110个Database任务（五）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/12/28/110个Database任务（五）/" class="leancloud_visitors" data-flag-title="110个Database练习任务(五)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>本文通过110个Database的练习任务及详细的任务解答帮助你走进数据库的大门！！！</p>
+<hr>
+<h3 id="database-company"><a href="#database-company" class="headerlink" title="database:company"></a>database:company</h3><pre><code>create database company;
+use company;
+##部门表dept： 部门编号(deptno)，部门名称(dname)，地址(loc)； 
+CREATE TABLE dept( 
+
+deptno INT PRIMARY KEY,dname VARCHAR(20),loc VARCHAR(20) 
+
+); 
+INSERT INTO dept VALUES (10,&apos;ACCOUNTING&apos;,&apos;NEWTORK&apos;); 
+
+INSERT INTO dept VALUES (20,&apos;RESEARCH&apos;,&apos;DALLAS&apos;); 
+
+INSERT INTO dept VALUES (30,&apos;SALES&apos;,&apos;CHICAGO&apos;); 
+
+INSERT INTO dept VALUES (40,&apos;OPERATIONS&apos;,&apos;BOSTON&apos;); 
+
+
+##员工表emp: 员工编号(empno)，员工名字(ename)，职务(job)，管理者编号(mgp)，
+##入职日期(hiredate)，月薪资(sal)，月奖金(comm)，部门编号(deptno)； 
+CREATE TABLE emp(empno INT PRIMARY KEY,ename VARCHAR(20) NOT NULL, 
+
+job VARCHAR(20) CHECK (job IN(&apos;CLERK&apos;,&apos;SALESMAN&apos;,&apos;MANAGER&apos;,&apos;ANALYST&apos;)),mgp INT, 
+
+hiredate DATETIME ,sal DECIMAL(10,2),comm DECIMAL(10,2), 
+
+deptno INT, 
+
+CONSTRAINT pk_we FOREIGN KEY (deptno) REFERENCES dept (deptno) 
+
+); 
+INSERT INTO emp VALUES(7369,&apos;SMITH&apos;,&apos;CLERK&apos;,7902,&apos;1980-12-17&apos;,1640,NULL,20); 
+
+INSERT INTO emp VALUES(7499,&apos;ALLEN&apos;,&apos;SALESMAN&apos;,7698,&apos;1981-2-20&apos;,9400,300,30); 
+
+INSERT INTO emp VALUES(7521,&apos;WARD&apos;,&apos;SALESMAN&apos;,7698,&apos;1981-2-22&apos;,5200,500,30); 
+
+INSERT INTO emp VALUES(7566,&apos;JOENS&apos;,&apos;MANAGER&apos;,7839,&apos;1981-4-2&apos;,7015,NULL,20); 
+
+INSERT INTO emp VALUES(7654,&apos;MARTIN&apos;,&apos;SALESMAN&apos;,7698,&apos;1981-9-28&apos;,5200,1400,30); 
+
+INSERT INTO emp VALUES(7698,&apos;BLAKE&apos;,&apos;MANAGER&apos;,7839,&apos;1981-5-1&apos;,5900,NULL,30); 
+
+INSERT INTO emp VALUES(7782,&apos;CLARK&apos;,&apos;MANAGER&apos;,7839,&apos;1981-6-9&apos;,2470,NULL,10); 
+
+INSERT INTO emp VALUES(7788,&apos;SCOTT&apos;,&apos;ANALYST&apos;,7566,&apos;1987-4-19&apos;,3040,NULL,20); 
+
+INSERT INTO emp VALUES(7839,&apos;KING&apos;,&apos;PRESIDENT&apos;,NULL,&apos;1981-11-17&apos;,5000,NULL,10);
+
+INSERT INTO emp VALUES(7844,&apos;TURNER&apos;,&apos;SALESMAN&apos;,7698,&apos;1981-09-08&apos;,1500,0,30); 
+
+INSERT INTO emp VALUES(7876,&apos;ADAMS&apos;,&apos;CLERK&apos;,7788,&apos;1987-05-23&apos;,1100,NULL,20); 
+
+INSERT INTO emp VALUES(7900,&apos;JAMES&apos;,&apos;CLERK&apos;,7698,&apos;1981-12-03&apos;,950,NULL,30); 
+
+INSERT INTO emp VALUES(7902,&apos;FORD&apos;,&apos;ANALYST&apos;,7566,&apos;1981-12-03&apos;,3000,NULL,20);
+
+INSERT INTO emp VALUES(7934,&apos;MILLER&apos;,&apos;CLERK&apos;,7782,&apos;1982-01-23&apos;,1300, NULL,10); 
+
+
+##工资表salgrade: 工资等级（grade），最低工资（losal），最高工资（misal） 
+CREATE TABLE salgrade( 
+
+grade INT (11), 
+
+losal INT (11), 
+
+misal INT (11) 
+
+);
+INSERT INTO salgrade VALUES(1,700,1200); 
+
+INSERT INTO salgrade VALUES(2,1201,1400); 
+
+INSERT INTO salgrade VALUES(3,1401,2000); 
+
+INSERT INTO salgrade VALUES(4,2001,3000); 
+
+INSERT INTO salgrade VALUES(5,3001,9999); 
+</code></pre><h3 id="D086-取得每个部门部门编号和最高薪水"><a href="#D086-取得每个部门部门编号和最高薪水" class="headerlink" title="D086.取得每个部门部门编号和最高薪水"></a>D086.取得每个部门部门编号和最高薪水</h3><pre><code>use company;
+select d.deptno,max(ifnull(e.sal,0)+ifnull(e.comm,0)) from dept d
+left join emp e on d.deptno=e.deptno
+group by d.deptno;
+</code></pre><h3 id="D087-不准用组函数（max-取得最高薪水"><a href="#D087-不准用组函数（max-取得最高薪水" class="headerlink" title="D087.不准用组函数（max),取得最高薪水"></a>D087.不准用组函数（max),取得最高薪水</h3><pre><code>use company;
+
+##法一
+select ifnull(e.sal,0)  as &quot;最高薪水&quot; from emp e
+order by ifnull(e.sal,0) desc limit 1;
+
+##法二
+select sal from emp 
+where sal not in(
+select distinct e1.sal from emp e1
+join emp e2 on e1.sal &lt; e2.sal
+);
+</code></pre><h3 id="D088-取得薪水最高的前五名员工"><a href="#D088-取得薪水最高的前五名员工" class="headerlink" title="D088.取得薪水最高的前五名员工"></a>D088.取得薪水最高的前五名员工</h3><pre><code>use company;
+select e.ename as &quot;姓名&quot;,ifnull(e.sal,0)  as &quot;薪水&quot; from emp e
+order by ifnull(e.sal,0) desc limit 5;
+</code></pre><h3 id="D089-取得薪水最高的第六到第十名员工"><a href="#D089-取得薪水最高的第六到第十名员工" class="headerlink" title="D089.取得薪水最高的第六到第十名员工"></a>D089.取得薪水最高的第六到第十名员工</h3><pre><code>use company;
+select e.* from emp e
+order by e.sal desc limit 5,5;
+</code></pre><h3 id="D090-取得最后入职的五名员工"><a href="#D090-取得最后入职的五名员工" class="headerlink" title="D090.取得最后入职的五名员工"></a>D090.取得最后入职的五名员工</h3><pre><code>use company;
+select e.* from emp e 
+order by e.hiredate desc limit 5;
+</code></pre><h3 id="D091-取得每个薪水等级有多少员工"><a href="#D091-取得每个薪水等级有多少员工" class="headerlink" title="D091.取得每个薪水等级有多少员工"></a>D091.取得每个薪水等级有多少员工</h3><pre><code>use company;
+
+#step 1
+select e.ename,s.grade from emp e
+left join salgrade s on e.sal between s.losal and s.misal
+order by s.grade;
+
+#step 2
+select t.grade,count(t.grade) as &quot;数量&quot; from
+(select e.ename,s.grade from emp e
+left join salgrade s on e.sal between s.losal and s.misal
+order by s.grade) as t
+group by t.grade;
+</code></pre><h3 id="D092-列出所有员工及领导的名字"><a href="#D092-列出所有员工及领导的名字" class="headerlink" title="D092.列出所有员工及领导的名字"></a>D092.列出所有员工及领导的名字</h3><pre><code>use company;
+select e1.ename as &quot;员工&quot;,e2.ename as &quot;领导&quot; from emp e1,emp e2
+where e1.mgp=e2.empno group by e1.empno;
+</code></pre><h3 id="D093-列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称"><a href="#D093-列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称" class="headerlink" title="D093.列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称"></a>D093.列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称</h3><pre><code>use company;
+select e.empno,e.ename,d.dname from emp e,emp b,dept d 
+where e.mgp=b.empno
+and d.`deptno`=e.`deptno` 
+and e.hiredate&gt;b.`hiredate`;
+</code></pre><h3 id="D094-列出部门名称和这些部门的员工信息，并列出没有员工的部门名称"><a href="#D094-列出部门名称和这些部门的员工信息，并列出没有员工的部门名称" class="headerlink" title="D094.列出部门名称和这些部门的员工信息，并列出没有员工的部门名称"></a>D094.列出部门名称和这些部门的员工信息，并列出没有员工的部门名称</h3><pre><code>use company;
+select d.dname,e.empno,e.ename from dept d 
+left join emp e on d.deptno = e.deptno;
+</code></pre><h3 id="D095-列出至少有五个员工的部门"><a href="#D095-列出至少有五个员工的部门" class="headerlink" title="D095.列出至少有五个员工的部门"></a>D095.列出至少有五个员工的部门</h3><pre><code>use company;
+select e.deptno ,count(1) totalEmp from emp e 
+group by e.deptno having totalEmp &gt;=5;
+</code></pre><h3 id="D096-列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数"><a href="#D096-列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数" class="headerlink" title="D096.列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数"></a>D096.列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数</h3><pre><code>use company;
+select e.job,min(e.sal) minsal ,count(1) totalEmp from emp e 
+group by e.job having minsal&gt;1500;
+</code></pre><h3 id="D097-列出在部门“SALES”-lt-销售部-gt-工作的员工姓名"><a href="#D097-列出在部门“SALES”-lt-销售部-gt-工作的员工姓名" class="headerlink" title="D097.列出在部门“SALES”&lt;销售部&gt;工作的员工姓名"></a>D097.列出在部门“SALES”&lt;销售部&gt;工作的员工姓名</h3><pre><code>use company;
+select ename from emp 
+where deptno=(
+select deptno from dept where dname=&apos;SALES&apos;);
+</code></pre><h3 id="D098-列出所有员工的年工资，按年薪从低到高排序"><a href="#D098-列出所有员工的年工资，按年薪从低到高排序" class="headerlink" title="D098.列出所有员工的年工资，按年薪从低到高排序"></a>D098.列出所有员工的年工资，按年薪从低到高排序</h3><pre><code>use company;
+select ename,(sal+ifnull(comm,0))*12 yearsal from emp 
+order by yearsal ASC;
+</code></pre><h3 id="D099-创建一个emp员工表的视图-视图名称为myview"><a href="#D099-创建一个emp员工表的视图-视图名称为myview" class="headerlink" title="D099.创建一个emp员工表的视图,视图名称为myview"></a>D099.创建一个emp员工表的视图,视图名称为myview</h3><pre><code>use company;
+create view myview as select* from emp;
+</code></pre><h3 id="D100-查询视图myview"><a href="#D100-查询视图myview" class="headerlink" title="D100.查询视图myview"></a>D100.查询视图myview</h3><pre><code>use company;
+select* from myview;
+</code></pre><h3 id="D101-删除视图myview"><a href="#D101-删除视图myview" class="headerlink" title="D101.删除视图myview"></a>D101.删除视图myview</h3><pre><code>use  company;
+delete from myview;
+</code></pre><h3 id="D102-创建表dept的视图deptview-，-并为字段deptno-dname-loc分别命名别名为a-b-c"><a href="#D102-创建表dept的视图deptview-，-并为字段deptno-dname-loc分别命名别名为a-b-c" class="headerlink" title="D102.创建表dept的视图deptview ， 并为字段deptno,dname,loc分别命名别名为a,b,c"></a>D102.创建表dept的视图deptview ， 并为字段deptno,dname,loc分别命名别名为a,b,c</h3><pre><code>use company;
+create view deptview 
+as select deptno as a,dname as b,loc as c from dept;
+</code></pre><h3 id="D103-修改视图deptview-并将字段a-b-c修改为dno-dname-dloc"><a href="#D103-修改视图deptview-并将字段a-b-c修改为dno-dname-dloc" class="headerlink" title="D103.修改视图deptview,并将字段a,b,c修改为dno,dname,dloc"></a>D103.修改视图deptview,并将字段a,b,c修改为dno,dname,dloc</h3><pre><code>use company;
+create or replace view deptview 
+as select deptno as dno,dname as dname,loc as dloc from dept;
+</code></pre><h3 id="D104-哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资"><a href="#D104-哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资" class="headerlink" title="D104.哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资"></a>D104.哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资</h3><pre><code>use company;
+select e2.ename,e2.sal ,e2.`deptno`,a.avgsal from emp e2 
+join (
+select e1.deptno ,avg(sal) avgsal from emp e1 group by deptno
+) a on e2.deptno =a.deptno 
+and e2.sal&gt;a.avgsal;
+</code></pre><h3 id="D105-取得部门的编号、平均薪水、所处等级"><a href="#D105-取得部门的编号、平均薪水、所处等级" class="headerlink" title="D105.取得部门的编号、平均薪水、所处等级"></a>D105.取得部门的编号、平均薪水、所处等级</h3><pre><code>use company;
+select a.deptno,a.avgsal,s.grade from salgrade s 
+join (
+select emp.deptno ,avg(sal) avgsal from emp 
+group by deptno) a on a.avgsal&gt;s.losal 
+and a.avgsal;
+</code></pre><h3 id="D106-取得平均薪水最高的部门的部门编号"><a href="#D106-取得平均薪水最高的部门的部门编号" class="headerlink" title="D106.取得平均薪水最高的部门的部门编号"></a>D106.取得平均薪水最高的部门的部门编号</h3><pre><code>use company;
+select deptno from emp 
+group by deptno having avg(sal) =(
+select avg(sal) from emp 
+group by deptno desc limit 1);
+</code></pre><h3 id="D107-取得比普通员工的最高薪资还要高的经理人名称"><a href="#D107-取得比普通员工的最高薪资还要高的经理人名称" class="headerlink" title="D107.取得比普通员工的最高薪资还要高的经理人名称"></a>D107.取得比普通员工的最高薪资还要高的经理人名称</h3><pre><code>use company;
+select ename from emp 
+where sal&gt; ( 
+select max(sal) maxsal from emp 
+where empno not in (
+select distinct mgp from emp 
+where mgp is not null));
+</code></pre><h3 id="D108-列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级"><a href="#D108-列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级" class="headerlink" title="D108.列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级"></a>D108.列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级</h3><pre><code>use company;
+select d.dname, e.ename, b.ename as leadername, s.grade from emp e 
+join dept d on e.deptno=d.deptno 
+left join emp b on e.mgp =b.`empno` 
+join salgrade s on e.sal between s.losal and s.misal 
+where e.sal&gt;(select avg(sal) avgsal from emp);
+</code></pre><h3 id="D109-列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金"><a href="#D109-列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金" class="headerlink" title="D109.列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金"></a>D109.列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金</h3><pre><code>use company;
+select ename,sal from emp 
+where sal in (
+select sal from emp 
+where deptno=30) 
+and deptno&lt;&gt;30;
+</code></pre><h3 id="D110-列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称"><a href="#D110-列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称" class="headerlink" title="D110.列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称"></a>D110.列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称</h3><pre><code>use company;
+select ename,sal,dname from emp 
+join dept on emp.`deptno`=dept.`deptno` 
+where emp.sal&gt;(
+select max(sal) maxsal from emp 
+where deptno=30 );
+</code></pre>
+      
+    </div>
+	
+    
+    
+    
+	<div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>给我支持和鼓励吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mr.Wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/03/110个Database任务（四）/" rel="next" title="110个Database练习任务(四)">
+                <i class="fa fa-chevron-left"></i> 110个Database练习任务(四)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/07/A001—插入排序 迭代和递归/" rel="prev" title="插入排序">
+                插入排序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Mr.Wang" />
+            
+              <p class="site-author-name" itemprop="name">Mr.Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#database-company"><span class="nav-number">1.</span> <span class="nav-text">database:company</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D086-取得每个部门部门编号和最高薪水"><span class="nav-number">2.</span> <span class="nav-text">D086.取得每个部门部门编号和最高薪水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D087-不准用组函数（max-取得最高薪水"><span class="nav-number">3.</span> <span class="nav-text">D087.不准用组函数（max),取得最高薪水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D088-取得薪水最高的前五名员工"><span class="nav-number">4.</span> <span class="nav-text">D088.取得薪水最高的前五名员工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D089-取得薪水最高的第六到第十名员工"><span class="nav-number">5.</span> <span class="nav-text">D089.取得薪水最高的第六到第十名员工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D090-取得最后入职的五名员工"><span class="nav-number">6.</span> <span class="nav-text">D090.取得最后入职的五名员工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D091-取得每个薪水等级有多少员工"><span class="nav-number">7.</span> <span class="nav-text">D091.取得每个薪水等级有多少员工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D092-列出所有员工及领导的名字"><span class="nav-number">8.</span> <span class="nav-text">D092.列出所有员工及领导的名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D093-列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称"><span class="nav-number">9.</span> <span class="nav-text">D093.列出受雇日期早于其直接上级的所有员工编号、姓名、部门名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D094-列出部门名称和这些部门的员工信息，并列出没有员工的部门名称"><span class="nav-number">10.</span> <span class="nav-text">D094.列出部门名称和这些部门的员工信息，并列出没有员工的部门名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D095-列出至少有五个员工的部门"><span class="nav-number">11.</span> <span class="nav-text">D095.列出至少有五个员工的部门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D096-列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数"><span class="nav-number">12.</span> <span class="nav-text">D096.列出与最低薪水大于1500的各种工作名称及从事此工作的最低工资和员工人数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D097-列出在部门“SALES”-lt-销售部-gt-工作的员工姓名"><span class="nav-number">13.</span> <span class="nav-text">D097.列出在部门“SALES”&lt;销售部&gt;工作的员工姓名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D098-列出所有员工的年工资，按年薪从低到高排序"><span class="nav-number">14.</span> <span class="nav-text">D098.列出所有员工的年工资，按年薪从低到高排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D099-创建一个emp员工表的视图-视图名称为myview"><span class="nav-number">15.</span> <span class="nav-text">D099.创建一个emp员工表的视图,视图名称为myview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D100-查询视图myview"><span class="nav-number">16.</span> <span class="nav-text">D100.查询视图myview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D101-删除视图myview"><span class="nav-number">17.</span> <span class="nav-text">D101.删除视图myview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D102-创建表dept的视图deptview-，-并为字段deptno-dname-loc分别命名别名为a-b-c"><span class="nav-number">18.</span> <span class="nav-text">D102.创建表dept的视图deptview ， 并为字段deptno,dname,loc分别命名别名为a,b,c</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D103-修改视图deptview-并将字段a-b-c修改为dno-dname-dloc"><span class="nav-number">19.</span> <span class="nav-text">D103.修改视图deptview,并将字段a,b,c修改为dno,dname,dloc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D104-哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资"><span class="nav-number">20.</span> <span class="nav-text">D104.哪些人的薪水在部门平均薪水之上，显示姓名，工资，部门编号，部门平均工资</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D105-取得部门的编号、平均薪水、所处等级"><span class="nav-number">21.</span> <span class="nav-text">D105.取得部门的编号、平均薪水、所处等级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D106-取得平均薪水最高的部门的部门编号"><span class="nav-number">22.</span> <span class="nav-text">D106.取得平均薪水最高的部门的部门编号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D107-取得比普通员工的最高薪资还要高的经理人名称"><span class="nav-number">23.</span> <span class="nav-text">D107.取得比普通员工的最高薪资还要高的经理人名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D108-列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级"><span class="nav-number">24.</span> <span class="nav-text">D108.列出薪金高于公司平均薪水的所有员工名，所在部门名、上级领导名、员工的工资等级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D109-列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金"><span class="nav-number">25.</span> <span class="nav-text">D109.列出薪金等于部门30中员工的薪金的其他部门员工的姓名和薪金</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D110-列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称"><span class="nav-number">26.</span> <span class="nav-text">D110.列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金、部门名称</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz',
+        appKey: 'dI4Y907Iitz3tCXknsYiSDkk',
+        placeholder: '评论一下吧！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4VeNPCQ72TzlIqF8TgSBOur0-gzGzoHsz", "dI4Y907Iitz3tCXknsYiSDkk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
